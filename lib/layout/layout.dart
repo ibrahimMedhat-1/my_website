@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_website/view/contact_page/contact_page.dart';
 import 'package:my_website/view_model/layout_cubit/layout_cubit.dart';
 
 import '../shared/components/animated_default_button.dart';
@@ -108,8 +107,7 @@ class Layout extends StatelessWidget {
               ),
             ],
           ),
-          body: ContactPage(),
-          // body: cubit.pages[cubit.page],
+          body: cubit.pages[cubit.page],
         );
       },
     );
