@@ -28,10 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  path_provider:
   url_launcher:
   vector_math:
-  bloc:
   flutter_bloc:
   flutter:
     sdk: flutter
