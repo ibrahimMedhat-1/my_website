@@ -131,7 +131,7 @@ class Layout extends StatelessWidget {
                   }
                 },
               ),
-              Expanded(child: cubit.pages[cubit.page]),
+              Expanded(child: cubit.pages[2]),
             ],
           )),
           drawer: Container(
