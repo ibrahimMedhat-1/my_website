@@ -10,6 +10,7 @@ part 'layout_state.dart';
 
 class LayoutCubit extends Cubit<LayoutState> {
   LayoutCubit() : super(LayoutInitial());
+
   static LayoutCubit get(context) => BlocProvider.of(context);
   List<Widget> pages = [
     const HomePage(),
@@ -24,12 +25,15 @@ class LayoutCubit extends Cubit<LayoutState> {
     false,
   ];
   int page = 0;
+
   void changePage(index) {
-    page = index;
-    for (int i = 0; i < isSelected.length; i++) {
-      isSelected[i] = false;
+    if (index != page) {
+      page = index;
+      for (int i = 0; i < isSelected.length; i++) {
+        isSelected[i] = false;
+      }
+      isSelected[index] = true;
+      emit(ChangePage());
     }
-    isSelected[index] = true;
-    emit(ChangePage());
   }
 }

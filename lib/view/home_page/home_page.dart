@@ -25,54 +25,113 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     /// name and data and profile picture
-                    Container(
-                      height: 550,
-                      decoration: BoxDecoration(
-                        color: color,
-                      ),
-                      child: Row(
-                        children: [
-                          /// Name and Data
-                          Expanded(
-                            flex: 6,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 80),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                    SizedBox(
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          if (constraints.maxWidth > 736) {
+                            return Container(
+                              height: 500,
+                              decoration: BoxDecoration(
+                                color: color,
+                              ),
+                              child: Row(
                                 children: [
-                                  dataWidget(context),
-                                  dataButtonsWidget(
-                                    hireMe: () {
-                                      cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
-                                    },
-                                    portfolio: () {
-                                      LayoutCubit.get(context).changePage(2);
-                                    },
+                                  /// Name and Data
+                                  Expanded(
+                                    flex: 6,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 80),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          dataWidget(context),
+                                          dataButtonsWidget(
+                                            hireMe: () {
+                                              cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+                                            },
+                                            portfolio: () {
+                                              LayoutCubit.get(context).changePage(2);
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+
+                                  /// Profile Picture
+                                  const Expanded(
+                                    flex: 4,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        CircleAvatar(
+                                          minRadius: 80,
+                                          maxRadius: 120,
+                                          backgroundImage: AssetImage('assets/profileImage.jpg'),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  const Spacer(
+                                    flex: 1,
                                   ),
                                 ],
                               ),
-                            ),
-                          ),
+                            );
+                          } else {
+                            return Container(
+                              height: 800,
+                              decoration: BoxDecoration(
+                                color: color,
+                              ),
+                              child: Column(
+                                children: [
+                                  /// Profile Picture
+                                  const Expanded(
+                                    flex: 4,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        CircleAvatar(
+                                          minRadius: 80,
+                                          maxRadius: 120,
+                                          backgroundImage: AssetImage('assets/profileImage.jpg'),
+                                        )
+                                      ],
+                                    ),
+                                  ),
 
-                          /// Profile Picture
-                          const Expanded(
-                            flex: 4,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                CircleAvatar(
-                                  minRadius: 80,
-                                  maxRadius: 120,
-                                  backgroundImage: AssetImage('assets/profileImage.jpg'),
-                                )
-                              ],
-                            ),
-                          ),
-                          const Spacer(
-                            flex: 1,
-                          ),
-                        ],
+                                  /// Name and Data
+                                  Expanded(
+                                    flex: 6,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 80),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          dataWidget(context),
+                                          dataButtonsWidget(
+                                            hireMe: () {
+                                              cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+                                            },
+                                            portfolio: () {
+                                              LayoutCubit.get(context).changePage(2);
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+
+                                  const Spacer(
+                                    flex: 1,
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+                        },
                       ),
                     ),
 
@@ -87,72 +146,72 @@ class HomePage extends StatelessWidget {
                     ),
 
                     /// Services
-                    Container(
-                      height: 580,
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
-                      color: color,
-                      child: Column(
-                        children: [
-                          Text(
-                            'Services',
-                            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                  color: complementaryColor,
-                                  fontSize: 30,
-                                ),
-                          ),
-                          Text(
-                            'What can I do for you',
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          serviceCards(),
-                        ],
+                    SizedBox(
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          if (constraints.maxWidth < 736) {
+                            /// mobile
+                            return Container(
+                              height: 1500,
+                              width: double.infinity,
+                              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 60),
+                              color: color,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Services',
+                                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                          color: complementaryColor,
+                                          fontSize: 30,
+                                        ),
+                                  ),
+                                  Text(
+                                    'What can I do for you',
+                                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                          fontSize: 35,
+                                        ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  serviceCardsMobile(),
+                                ],
+                              ),
+                            );
+                          } else {
+                            /// web
+                            return Container(
+                              height: 580,
+                              width: double.infinity,
+                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
+                              color: color,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Services',
+                                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                          color: complementaryColor,
+                                          fontSize: 30,
+                                        ),
+                                  ),
+                                  Text(
+                                    'What can I do for you',
+                                    style: Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  serviceCardsWeb(),
+                                ],
+                              ),
+                            );
+                          }
+                        },
                       ),
                     ),
 
-                    /// Contact with me
-                    SizedBox(
-                      height: 370,
-                      child: Column(
-                        children: [
-                          /// Get in touch
-                          getInTouch(
-                            context: context,
-                            hireMe: () {
-                              cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
-                            },
-                            portfolio: () {
-                              LayoutCubit.get(context).changePage(2);
-                            },
-                          ),
-                          const Divider(
-                            thickness: 3,
-                            color: Colors.black45,
-                          ),
-                          contactIcons(
-                            context: context,
-                            gitHub: () {
-                              cubit.launch(url: 'https://github.com/ibrahimMedhat-1');
-                            },
-                            linkedIn: () {
-                              cubit.launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
-                            },
-                            whatsApp: () {
-                              cubit.launch(url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
-                            },
-                            faceBook: () {
-                              cubit.launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
-                            },
-                            instagram: () {
-                              cubit.launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
+                    /// contact with me
+                    contactWithMe(context),
                   ],
                 ),
               ),

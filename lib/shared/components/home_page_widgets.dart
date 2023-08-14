@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_website/shared/style.dart';
 
+import '../../view_model/home_page_cubit/home_page_cubit.dart';
+import '../../view_model/layout_cubit/layout_cubit.dart';
 import 'animated_contact_icons.dart';
 import 'animated_default_button.dart';
 import 'animated_services_widget.dart';
@@ -145,10 +147,10 @@ Widget whoAmIWidget({
       ],
     );
 
-Widget serviceCards() => const Expanded(
+Widget serviceCardsWeb() => const Expanded(
       child: Row(
         children: [
-          ServiceWidget(
+          ServiceWidgetWeb(
             backgroundImage: 'assets/service_images/ui_ux.png',
             text: 'Create beautiful user interfaces with the best user experience using Figma.',
             title: 'UI / UX',
@@ -156,7 +158,7 @@ Widget serviceCards() => const Expanded(
           SizedBox(
             width: 20,
           ),
-          ServiceWidget(
+          ServiceWidgetWeb(
             backgroundImage: 'assets/service_images/mobileApp.png',
             title: 'Mobile App',
             text: 'Build mobile apps for both Android & IOS.',
@@ -164,7 +166,34 @@ Widget serviceCards() => const Expanded(
           SizedBox(
             width: 20,
           ),
-          ServiceWidget(
+          ServiceWidgetWeb(
+            backgroundImage: 'assets/service_images/website.png',
+            title: 'Website',
+            text: 'Develop websites and deploying it on internet.',
+          ),
+        ],
+      ),
+    );
+Widget serviceCardsMobile() => const Expanded(
+      child: Column(
+        children: [
+          ServiceWidgetMobile(
+            backgroundImage: 'assets/service_images/ui_ux.png',
+            text: 'Create beautiful user interfaces with the best user experience using Figma.',
+            title: 'UI / UX',
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ServiceWidgetMobile(
+            backgroundImage: 'assets/service_images/mobileApp.png',
+            title: 'Mobile App',
+            text: 'Build mobile apps for both Android & IOS.',
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ServiceWidgetMobile(
             backgroundImage: 'assets/service_images/website.png',
             title: 'Website',
             text: 'Develop websites and deploying it on internet.',
@@ -241,7 +270,7 @@ Widget getInTouch({
       ),
     );
 
-Widget contactIcons({
+Widget contactIconsWeb({
   required context,
   required Function() gitHub,
   required Function() linkedIn,
@@ -250,7 +279,7 @@ Widget contactIcons({
   required Function() instagram,
 }) =>
     SizedBox(
-      height: 70,
+      height: 100,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -292,6 +321,135 @@ Widget contactIcons({
               ],
             ),
           ),
+        ],
+      ),
+    );
+
+Widget contactIconsMobile({
+  required context,
+  required Function() gitHub,
+  required Function() linkedIn,
+  required Function() whatsApp,
+  required Function() faceBook,
+  required Function() instagram,
+}) =>
+    SizedBox(
+      height: 100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Ibrahim Medhat copyright 2023 developed by Ibrahim Medhat',
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 16),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ContactIcon(
+                      icon: 'assets/contact_icons/gitHub.png',
+                      onTap: gitHub,
+                    ),
+                    const SizedBox(width: 20),
+                    ContactIcon(
+                      icon: 'assets/contact_icons/linkedin.png',
+                      onTap: linkedIn,
+                    ),
+                    const SizedBox(width: 20),
+                    ContactIcon(
+                      icon: 'assets/contact_icons/whatsapp.png',
+                      onTap: whatsApp,
+                    ),
+                    const SizedBox(width: 20),
+                    ContactIcon(
+                      icon: 'assets/contact_icons/facebook.png',
+                      onTap: faceBook,
+                    ),
+                    const SizedBox(width: 20),
+                    ContactIcon(
+                      icon: 'assets/contact_icons/instagram.png',
+                      onTap: instagram,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+
+Widget contactWithMe(context) =>
+
+    /// Contact with me
+    SizedBox(
+      height: 450,
+      child: Column(
+        children: [
+          /// Get in touch
+          getInTouch(
+            context: context,
+            hireMe: () {
+              HomePageCubit.get(context).launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+            },
+            portfolio: () {
+              LayoutCubit.get(context).changePage(2);
+            },
+          ),
+          const Divider(
+            thickness: 3,
+            color: Colors.black45,
+          ),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth < 785) {
+                return contactIconsMobile(
+                  context: context,
+                  gitHub: () {
+                    HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
+                  },
+                  linkedIn: () {
+                    HomePageCubit.get(context).launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
+                  },
+                  whatsApp: () {
+                    HomePageCubit.get(context).launch(url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
+                  },
+                  faceBook: () {
+                    HomePageCubit.get(context).launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
+                  },
+                  instagram: () {
+                    HomePageCubit.get(context).launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
+                  },
+                );
+              } else {
+                return contactIconsWeb(
+                  context: context,
+                  gitHub: () {
+                    HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
+                  },
+                  linkedIn: () {
+                    HomePageCubit.get(context).launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
+                  },
+                  whatsApp: () {
+                    HomePageCubit.get(context).launch(url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
+                  },
+                  faceBook: () {
+                    HomePageCubit.get(context).launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
+                  },
+                  instagram: () {
+                    HomePageCubit.get(context).launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
+                  },
+                );
+              }
+            },
+          ),
+          const SizedBox(height: 20),
         ],
       ),
     );

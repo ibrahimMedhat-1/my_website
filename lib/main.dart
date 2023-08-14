@@ -11,13 +11,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<LayoutCubit>(create: (context) => LayoutCubit()),
         BlocProvider<HomePageCubit>(create: (context) => HomePageCubit()),
+        BlocProvider<LayoutCubit>(create: (context) => LayoutCubit()),
       ],
       child: MaterialApp(
         title: 'Ibrahim Website',

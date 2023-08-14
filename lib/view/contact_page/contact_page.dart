@@ -181,46 +181,8 @@ class ContactPage extends StatelessWidget {
                         },
                       ),
 
-                      /// Contact with me
-                      SizedBox(
-                        height: 370,
-                        child: Column(
-                          children: [
-                            /// Get in touch
-                            getInTouch(
-                              context: context,
-                              hireMe: () {
-                                cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
-                              },
-                              portfolio: () {
-                                LayoutCubit.get(context).changePage(2);
-                              },
-                            ),
-                            const Divider(
-                              thickness: 3,
-                              color: Colors.black45,
-                            ),
-                            contactIcons(
-                              context: context,
-                              gitHub: () {
-                                cubit.launch(url: 'https://github.com/ibrahimMedhat-1');
-                              },
-                              linkedIn: () {
-                                cubit.launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
-                              },
-                              whatsApp: () {
-                                cubit.launch(url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
-                              },
-                              faceBook: () {
-                                cubit.launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
-                              },
-                              instagram: () {
-                                cubit.launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                      /// contact  with me
+                      contactWithMe(context),
                     ],
                   ),
                 ),

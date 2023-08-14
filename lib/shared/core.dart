@@ -1,0 +1,4 @@
+enum OS {
+  mobile,
+  web,
+}

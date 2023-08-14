@@ -7,6 +7,7 @@ import 'package:my_website/view_model/layout_cubit/layout_cubit.dart';
 
 import '../../shared/components/animated_default_button.dart';
 import '../../shared/components/home_page_widgets.dart';
+import '../../shared/core.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -73,211 +74,440 @@ class AboutPage extends StatelessWidget {
                       ),
 
                       ///personal Data
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          /// image
-                          Container(
-                            height: 350,
-                            width: 200,
-                            margin: const EdgeInsets.only(
-                              top: 80,
-                              bottom: 80,
-                              left: 20,
-                              right: 20,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(20),
-                              image: const DecorationImage(
-                                image: AssetImage(
-                                  'assets/profileImage.jpg',
-                                ),
-                                fit: BoxFit.fitHeight,
-                              ),
-                            ),
-                          ),
-
-                          /// paragraph & personal data
-                          Expanded(
-                            flex: 5,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(height: 30),
-
-                                  /// hello
-                                  Text(
-                                    'Hello, I Am a Flutter developer',
-                                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                          color: complementaryColor,
-                                          fontSize: 35,
-                                        ),
+                      LayoutBuilder(
+                        builder: (context, constraints) {
+                          if (constraints.maxWidth < 829) {
+                            /// mobile
+                            cubit.changeOS(OS.mobile);
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                /// image
+                                Container(
+                                  height: 350,
+                                  width: 330,
+                                  margin: const EdgeInsets.only(
+                                    top: 30,
+                                    // bottom: 80,
+                                    left: 20,
+                                    right: 20,
                                   ),
-                                  const SizedBox(height: 10),
-
-                                  /// experience
-                                  Text(
-                                    'Having 1 Year Of Experience',
-                                    style: Theme.of(context).textTheme.bodyLarge,
-                                  ),
-                                  const SizedBox(height: 10),
-
-                                  /// paragraph
-                                  Text(
-                                    'Hi there! I am a flutter developer with experience in building mobile applications for both android & ios system.'
-                                    'My experience includes Dart, Bloc, Provider, dependency injection, Connecting Flutter applications to backends,'
-                                    ' Firebase Firestore, Local Storage. help in writing lectures and delivering helping workshops and projects.',
-                                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                          height: 1.5,
-                                          color: complementaryColor,
-                                          fontSize: 20,
-                                        ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  const Divider(
-                                    thickness: 3,
-                                    color: Colors.black45,
-                                  ),
-                                  const SizedBox(height: 10),
-
-                                  /// name & place
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      personalDataWidget(
-                                        icon: Icons.person,
-                                        personal: 'Name',
-                                        text: const Text(
-                                          ' Ibrahim Medhat',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black45,
-                                          ),
-                                        ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.circular(20),
+                                    image: const DecorationImage(
+                                      image: AssetImage(
+                                        'assets/profileImage.jpg',
                                       ),
-                                      personalDataWidget(
-                                        icon: Icons.location_on,
-                                        personal: 'From',
-                                        text: const Text(
-                                          ' Cairo - Egypt',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black45,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 10),
-
-                                  /// Birthday
-                                  personalDataWidget(
-                                    icon: Icons.cake,
-                                    personal: 'Birthday',
-                                    text: const Text(
-                                      ' 28/9/2000',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.black45,
-                                      ),
+                                      fit: BoxFit.fitHeight,
                                     ),
                                   ),
-                                  const SizedBox(height: 10),
+                                ),
 
-                                  /// email & phone
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                /// paragraph & personal data
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      personalDataWidget(
-                                        icon: Icons.email,
-                                        personal: 'Email',
-                                        text: InkWell(
-                                          onTap: () {
-                                            cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
-                                          },
-                                          child: const Text(
-                                            ' ibrahimmedhat112@gmail.com',
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.blue,
+                                      const SizedBox(height: 30),
+
+                                      /// hello
+                                      Text(
+                                        'Hello, I Am a Flutter developer',
+                                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                              color: complementaryColor,
+                                              fontSize: 35,
                                             ),
+                                      ),
+                                      const SizedBox(height: 10),
+
+                                      /// experience
+                                      Text(
+                                        'Having 1 Year Of Experience',
+                                        style: Theme.of(context).textTheme.bodyLarge,
+                                      ),
+                                      const SizedBox(height: 10),
+
+                                      /// paragraph
+                                      Text(
+                                        'Hi there! I am a flutter developer with experience in building mobile applications for both android & ios system.'
+                                        'My experience includes Dart, Bloc, Provider, dependency injection, Connecting Flutter applications to backends,'
+                                        ' Firebase Firestore, Local Storage. help in writing lectures and delivering helping workshops and projects.',
+                                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                              height: 1.5,
+                                              color: complementaryColor,
+                                              fontSize: 20,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      const Divider(
+                                        thickness: 3,
+                                        color: Colors.black45,
+                                      ),
+                                      const SizedBox(height: 10),
+
+                                      /// name & place
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          personalDataWidget(
+                                            icon: Icons.person,
+                                            personal: 'Name',
+                                            text: const Text(
+                                              ' Ibrahim Medhat',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black45,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(height: 10),
+                                          personalDataWidget(
+                                            icon: Icons.location_on,
+                                            personal: 'From',
+                                            text: const Text(
+                                              ' Cairo - Egypt',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black45,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 10),
+
+                                      /// Birthday
+                                      personalDataWidget(
+                                        icon: Icons.cake,
+                                        personal: 'Birthday',
+                                        text: const Text(
+                                          ' 28/9/2000',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black45,
                                           ),
                                         ),
                                       ),
-                                      personalDataWidget(
-                                        icon: Icons.phone,
-                                        personal: 'Phone',
-                                        text: InkWell(
-                                          onTap: () {
-                                            cubit.launch(url: 'tel:+201553708872');
-                                          },
-                                          child: const Text(
-                                            ' +201553708872',
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.blue,
+                                      const SizedBox(height: 10),
+
+                                      /// email & phone
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          personalDataWidget(
+                                            icon: Icons.email,
+                                            personal: 'Email',
+                                            text: InkWell(
+                                              onTap: () {
+                                                cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+                                              },
+                                              child: const Text(
+                                                ' ibrahimmedhat112@gmail.com',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.blue,
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                        ),
+                                          const SizedBox(height: 10),
+                                          personalDataWidget(
+                                            icon: Icons.phone,
+                                            personal: 'Phone',
+                                            text: InkWell(
+                                              onTap: () {
+                                                cubit.launch(url: 'tel:+201553708872');
+                                              },
+                                              child: const Text(
+                                                ' +201553708872',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.blue,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 20),
+                                      DefaultButton(
+                                        text: 'Download CV',
+                                        onTap: () {
+                                          cubit.launch(url: 'https://drive.google.com/file/d/1K02ioXeBJJHPuffeXTALScn_9wjVCuXV/view?usp=sharing');
+                                        },
+                                        borderRadius: 20,
+                                        fontSize: 20,
+                                        width: 150,
+                                        height: 70,
+                                        borderColor: Colors.transparent,
+                                        marginTop: 0,
+                                        marginRight: 0,
+                                        containerColor: Colors.blue,
+                                        mainContainerColor: Colors.blue,
+                                        animationContainerColor: Colors.grey.shade300,
+                                        textColor: Colors.white,
+                                        mainTextColor: Colors.white,
+                                        animationTextColor: Colors.blue,
+                                        isSelected: false,
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(height: 20),
-                                  DefaultButton(
-                                    text: 'Download CV',
-                                    onTap: () {
-                                      cubit.launch(url: 'https://drive.google.com/file/d/1K02ioXeBJJHPuffeXTALScn_9wjVCuXV/view?usp=sharing');
-                                    },
-                                    borderRadius: 20,
-                                    fontSize: 20,
-                                    width: 150,
-                                    height: 70,
-                                    borderColor: Colors.transparent,
-                                    marginTop: 0,
-                                    marginRight: 0,
-                                    containerColor: Colors.blue,
-                                    mainContainerColor: Colors.blue,
-                                    animationContainerColor: Colors.grey.shade300,
-                                    textColor: Colors.white,
-                                    mainTextColor: Colors.white,
-                                    animationTextColor: Colors.blue,
-                                    isSelected: false,
+                                ),
+                              ],
+                            );
+                          } else {
+                            /// web
+                            cubit.changeOS(OS.web);
+                            return Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                /// image
+                                Container(
+                                  height: 350,
+                                  width: 200,
+                                  margin: const EdgeInsets.only(
+                                    top: 80,
+                                    bottom: 80,
+                                    left: 20,
+                                    right: 20,
                                   ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.circular(20),
+                                    image: const DecorationImage(
+                                      image: AssetImage(
+                                        'assets/profileImage.jpg',
+                                      ),
+                                      fit: BoxFit.fitHeight,
+                                    ),
+                                  ),
+                                ),
+
+                                /// paragraph & personal data
+                                Expanded(
+                                  flex: 5,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 20),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(height: 30),
+
+                                        /// hello
+                                        Text(
+                                          'Hello, I Am a Flutter developer',
+                                          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                                color: complementaryColor,
+                                                fontSize: 35,
+                                              ),
+                                        ),
+                                        const SizedBox(height: 10),
+
+                                        /// experience
+                                        Text(
+                                          'Having 1 Year Of Experience',
+                                          style: Theme.of(context).textTheme.bodyLarge,
+                                        ),
+                                        const SizedBox(height: 10),
+
+                                        /// paragraph
+                                        Text(
+                                          'Hi there! I am a flutter developer with experience in building mobile applications for both android & ios system.'
+                                          'My experience includes Dart, Bloc, Provider, dependency injection, Connecting Flutter applications to backends,'
+                                          ' Firebase Firestore, Local Storage. help in writing lectures and delivering helping workshops and projects.',
+                                          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                                height: 1.5,
+                                                color: complementaryColor,
+                                                fontSize: 20,
+                                              ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        const Divider(
+                                          thickness: 3,
+                                          color: Colors.black45,
+                                        ),
+                                        const SizedBox(height: 10),
+
+                                        /// name & place
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            personalDataWidget(
+                                              icon: Icons.person,
+                                              personal: 'Name',
+                                              text: const Text(
+                                                ' Ibrahim Medhat',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.black45,
+                                                ),
+                                              ),
+                                            ),
+                                            personalDataWidget(
+                                              icon: Icons.location_on,
+                                              personal: 'From',
+                                              text: const Text(
+                                                ' Cairo - Egypt',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.black45,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 10),
+
+                                        /// Birthday
+                                        personalDataWidget(
+                                          icon: Icons.cake,
+                                          personal: 'Birthday',
+                                          text: const Text(
+                                            ' 28/9/2000',
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black45,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+
+                                        /// email & phone
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            personalDataWidget(
+                                              icon: Icons.email,
+                                              personal: 'Email',
+                                              text: InkWell(
+                                                onTap: () {
+                                                  cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+                                                },
+                                                child: const Text(
+                                                  ' ibrahimmedhat112@gmail.com',
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.blue,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            personalDataWidget(
+                                              icon: Icons.phone,
+                                              personal: 'Phone',
+                                              text: InkWell(
+                                                onTap: () {
+                                                  cubit.launch(url: 'tel:+201553708872');
+                                                },
+                                                child: const Text(
+                                                  ' +201553708872',
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.blue,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 20),
+                                        DefaultButton(
+                                          text: 'Download CV',
+                                          onTap: () {
+                                            cubit.launch(url: 'https://drive.google.com/file/d/1K02ioXeBJJHPuffeXTALScn_9wjVCuXV/view?usp=sharing');
+                                          },
+                                          borderRadius: 20,
+                                          fontSize: 20,
+                                          width: 150,
+                                          height: 70,
+                                          borderColor: Colors.transparent,
+                                          marginTop: 0,
+                                          marginRight: 0,
+                                          containerColor: Colors.blue,
+                                          mainContainerColor: Colors.blue,
+                                          animationContainerColor: Colors.grey.shade300,
+                                          textColor: Colors.white,
+                                          mainTextColor: Colors.white,
+                                          animationTextColor: Colors.blue,
+                                          isSelected: false,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          }
+                        },
                       ),
 
                       /// services
-                      Container(
-                        height: 580,
-                        width: double.infinity,
-                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
-                        color: color,
-                        child: Column(
-                          children: [
-                            Text(
-                              'Services',
-                              style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                    color: complementaryColor,
-                                    fontSize: 30,
-                                  ),
-                            ),
-                            Text(
-                              'What can I do for you',
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            serviceCards(),
-                          ],
+                      SizedBox(
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            if (constraints.maxWidth < 736) {
+                              /// mobile
+                              return Container(
+                                height: 1500,
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 60),
+                                color: color,
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Services',
+                                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                            color: complementaryColor,
+                                            fontSize: 30,
+                                          ),
+                                    ),
+                                    Text(
+                                      'What can I do for you',
+                                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                            fontSize: 35,
+                                          ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    serviceCardsMobile(),
+                                  ],
+                                ),
+                              );
+                            } else {
+                              /// web
+                              return Container(
+                                height: 580,
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
+                                color: color,
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Services',
+                                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                            color: complementaryColor,
+                                            fontSize: 30,
+                                          ),
+                                    ),
+                                    Text(
+                                      'What can I do for you',
+                                      style: Theme.of(context).textTheme.bodyLarge,
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    serviceCardsWeb(),
+                                  ],
+                                ),
+                              );
+                            }
+                          },
                         ),
                       ),
 
@@ -293,7 +523,7 @@ class AboutPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 20),
                             GridView.count(
-                              crossAxisCount: 3,
+                              crossAxisCount: cubit.os == OS.mobile ? 1 : 3,
                               childAspectRatio: 10,
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
@@ -363,46 +593,8 @@ class AboutPage extends StatelessWidget {
                         ),
                       ),
 
-                      /// Contact with me
-                      SizedBox(
-                        height: 370,
-                        child: Column(
-                          children: [
-                            /// Get in touch
-                            getInTouch(
-                              context: context,
-                              hireMe: () {
-                                cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
-                              },
-                              portfolio: () {
-                                LayoutCubit.get(context).changePage(2);
-                              },
-                            ),
-                            const Divider(
-                              thickness: 3,
-                              color: Colors.black45,
-                            ),
-                            contactIcons(
-                              context: context,
-                              gitHub: () {
-                                cubit.launch(url: 'https://github.com/ibrahimMedhat-1');
-                              },
-                              linkedIn: () {
-                                cubit.launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
-                              },
-                              whatsApp: () {
-                                cubit.launch(url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
-                              },
-                              faceBook: () {
-                                cubit.launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
-                              },
-                              instagram: () {
-                                cubit.launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                      /// contact with me
+                      contactWithMe(context),
                     ],
                   ),
                 ),
