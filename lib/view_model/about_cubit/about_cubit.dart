@@ -2,8 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../shared/core.dart';
-
 part 'about_state.dart';
 
 class AboutCubit extends Cubit<AboutState> {
@@ -32,12 +30,6 @@ class AboutCubit extends Cubit<AboutState> {
     'SQL',
     'C++',
   ];
-  OS os = OS.web;
-  void changeOS(os) {
-    this.os = os;
-    emit(ChangeOS());
-  }
-
   void launch({required String url}) async {
     final link = Uri.parse(url);
     if (await canLaunchUrl(link)) {

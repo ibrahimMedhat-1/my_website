@@ -297,7 +297,7 @@ Widget contactIconsWeb({
                 ),
                 const SizedBox(width: 20),
                 ContactIcon(
-                  icon: 'assets/contact_icons/gitHub.png',
+                  icon: 'assets/contact_icons/github.png',
                   onTap: gitHub,
                 ),
                 const SizedBox(width: 20),

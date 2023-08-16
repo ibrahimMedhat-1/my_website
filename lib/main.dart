@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_website/firebase_options.dart';
 import 'package:my_website/layout/layout.dart';
+import 'package:my_website/shared/core.dart';
+import 'package:my_website/view_model/about_cubit/about_cubit.dart';
 import 'package:my_website/view_model/home_page_cubit/home_page_cubit.dart';
 import 'package:my_website/view_model/layout_cubit/layout_cubit.dart';
 
@@ -23,10 +25,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomePageCubit>(create: (context) => HomePageCubit()),
+        BlocProvider<AboutCubit>(create: (context) => AboutCubit()),
         BlocProvider<LayoutCubit>(create: (context) => LayoutCubit()),
       ],
       child: MaterialApp(
-        title: 'Ibrahim Website',
+        title: 'Ibrahim Medhat',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
@@ -45,7 +48,10 @@ class MyApp extends StatelessWidget {
                 color: Colors.grey,
               ),
             )),
-        home: const Layout(),
+        home: LayoutBuilder(builder: (context, constraint) {
+          constraints = constraint.maxWidth;
+          return const Layout();
+        }),
       ),
     );
   }

@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "594189205385",
-    "project_id": "ibrahim-website-1",
-    "storage_bucket": "ibrahim-website-1.appspot.com"
+    "project_number": "159161524183",
+    "project_id": "ibrahim-medhat",
+    "storage_bucket": "ibrahim-medhat.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:594189205385:android:272c561dff68e5189aeb58",
+        "mobilesdk_app_id": "1:159161524183:android:4f7c530290a85950dbf592",
         "android_client_info": {
           "package_name": "com.example.my_website"
         }
       },
       "oauth_client": [
         {
-          "client_id": "594189205385-f6qc3mbleq4qlbaajlsb88fgsg4beba2.apps.googleusercontent.com",
+          "client_id": "159161524183-badop6nll18pebd7rrvdt0jfk5cfki7c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCYeQ1csXB8Pv8V-kgN5l5XsGzXVItdolk"
+          "current_key": "AIzaSyBxQw1sUvSospkug1giJMhAVnnGbcPDwjU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "594189205385-f6qc3mbleq4qlbaajlsb88fgsg4beba2.apps.googleusercontent.com",
+              "client_id": "159161524183-badop6nll18pebd7rrvdt0jfk5cfki7c.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "159161524183-bagg3coj6bn3d17ghlqcuchpoaopd3dg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myWebsite.RunnerTests"
+              }
             }
           ]
         }

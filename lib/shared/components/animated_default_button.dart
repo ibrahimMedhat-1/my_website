@@ -43,7 +43,7 @@ class DefaultButton extends StatefulWidget {
   State<DefaultButton> createState() => _DefaultButtonState();
 }
 
-class _DefaultButtonState extends State<DefaultButton> with SingleTickerProviderStateMixin {
+class _DefaultButtonState extends State<DefaultButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
