@@ -15,20 +15,16 @@ class ProjectsPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => ProjectsCubit(),
       child: BlocConsumer<ProjectsCubit, ProjectsState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
+        listener: (context, state) {},
         builder: (context, state) {
-          ProjectsCubit cubit = ProjectsCubit.get(context);
           return BlocConsumer<LayoutCubit, LayoutState>(
-            listener: (context, state) {
-              // TODO: implement listener
-            },
+            listener: (context, state) {},
             builder: (context, state) {
               LayoutCubit.get(context).changePage(2);
               return Scaffold(
                 body: Center(
                   child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
                     child: Column(
                       children: [
                         /// About title

@@ -21,13 +21,12 @@ class ContactPage extends StatelessWidget {
         builder: (context, state) {
           ContactCubit cubit = ContactCubit.get(context);
           return BlocConsumer<LayoutCubit, LayoutState>(
-            listener: (context, state) {
-              // TODO: implement listener
-            },
+            listener: (context, state) {},
             builder: (context, state) {
               LayoutCubit.get(context).changePage(3);
               return Scaffold(
                 body: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

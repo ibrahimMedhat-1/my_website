@@ -34,6 +34,7 @@ class AboutPage extends StatelessWidget {
             LayoutCubit.get(context).changePage(1);
             return Scaffold(
               body: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: [
                     /// About title

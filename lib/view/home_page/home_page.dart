@@ -15,13 +15,12 @@ class HomePage extends StatelessWidget {
       builder: (context, state) {
         HomePageCubit cubit = HomePageCubit.get(context);
         return BlocConsumer<LayoutCubit, LayoutState>(
-          listener: (context, state) {
-            // TODO: implement listener
-          },
+          listener: (context, state) {},
           builder: (context, state) {
             LayoutCubit.get(context).changePage(0);
             return Scaffold(
               body: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: [
                     /// name and data and profile picture
