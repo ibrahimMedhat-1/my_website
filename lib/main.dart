@@ -48,8 +48,12 @@ class MyApp extends StatelessWidget {
                 color: Colors.grey,
               ),
             )),
-        home: LayoutBuilder(builder: (context, constraint) {
-          constraints = constraint.maxWidth;
+        home: LayoutBuilder(builder: (context, constraints) {
+          if (constraints.maxWidth < 846) {
+            AboutCubit.get(context).changeOS(OS.mobile);
+          } else if (constraints.maxWidth > 846) {
+            AboutCubit.get(context).changeOS(OS.web);
+          }
           return const Layout();
         }),
       ),

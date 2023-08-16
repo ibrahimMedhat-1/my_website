@@ -24,26 +24,47 @@ class Layout extends StatelessWidget {
                   builder: (context, constraints) {
                     if (constraints.maxWidth < 829) {
                       return AppBar(
+                        // leadingWidth: double.minPositive + 25,
+                        titleSpacing: 0,
                         iconTheme: const IconThemeData(color: Colors.blue),
-                        title: const Text(
-                          'Ibrahim Medhat',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        title: const Row(
+                          children: [
+                            ImageIcon(
+                              AssetImage('assets/im-logo.png'),
+                              size: 70,
+                            ),
+                            Text(
+                              'Ibrahim Medhat',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                       );
                     } else {
                       return AppBar(
                         iconTheme: const IconThemeData(color: Colors.blue),
-                        title: const Text(
-                          'Ibrahim Medhat',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        title: const Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.zero,
+                              child: ImageIcon(
+                                AssetImage('assets/im-logo.png'),
+                                size: 70,
+                              ),
+                            ),
+                            Text(
+                              'Ibrahim Medhat',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                         actions: [
                           DefaultButton(

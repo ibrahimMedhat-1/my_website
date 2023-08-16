@@ -14,6 +14,16 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 846) {
+          AboutCubit.get(context).changeOS(OS.mobile);
+        } else if (constraints.maxWidth > 846) {
+          AboutCubit.get(context).changeOS(OS.web);
+        }
+        return Container();
+      },
+    );
     return BlocConsumer<AboutCubit, AboutState>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -69,7 +79,7 @@ class AboutPage extends StatelessWidget {
 
                     ///personal Data
 
-                    if (constraints < 829)
+                    if (cubit.os == OS.mobile)
 
                       /// mobile
                       Column(
@@ -252,7 +262,7 @@ class AboutPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    if (constraints > 829)
+                    if (cubit.os == OS.web)
 
                       /// web
                       Row(
@@ -451,7 +461,7 @@ class AboutPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 20),
                           GridView.count(
-                            crossAxisCount: constraints < 829 ? 1 : 3,
+                            crossAxisCount: cubit.os == OS.mobile ? 1 : 3,
                             childAspectRatio: 10,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
