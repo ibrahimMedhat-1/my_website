@@ -29,6 +29,7 @@ class HomePage extends StatelessWidget {
                       child: LayoutBuilder(
                         builder: (context, constraints) {
                           if (constraints.maxWidth > 736) {
+                            ///web
                             return Container(
                               height: 500,
                               decoration: BoxDecoration(
@@ -80,6 +81,7 @@ class HomePage extends StatelessWidget {
                               ),
                             );
                           } else {
+                            ///mobile
                             return Container(
                               height: 800,
                               decoration: BoxDecoration(
@@ -106,7 +108,7 @@ class HomePage extends StatelessWidget {
                                   Expanded(
                                     flex: 6,
                                     child: Padding(
-                                      padding: const EdgeInsets.only(left: 80),
+                                      padding: const EdgeInsets.only(left: 20),
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
@@ -122,10 +124,6 @@ class HomePage extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                  ),
-
-                                  const Spacer(
-                                    flex: 1,
                                   ),
                                 ],
                               ),
@@ -146,69 +144,7 @@ class HomePage extends StatelessWidget {
                     ),
 
                     /// Services
-                    SizedBox(
-                      child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          if (constraints.maxWidth < 736) {
-                            /// mobile
-                            return Container(
-                              height: 1500,
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 60),
-                              color: color,
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Services',
-                                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                          color: complementaryColor,
-                                          fontSize: 30,
-                                        ),
-                                  ),
-                                  Text(
-                                    'What can I do for you',
-                                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                          fontSize: 35,
-                                        ),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  serviceCardsMobile(),
-                                ],
-                              ),
-                            );
-                          } else {
-                            /// web
-                            return Container(
-                              height: 580,
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
-                              color: color,
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Services',
-                                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                          color: complementaryColor,
-                                          fontSize: 30,
-                                        ),
-                                  ),
-                                  Text(
-                                    'What can I do for you',
-                                    style: Theme.of(context).textTheme.bodyLarge,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  serviceCardsWeb(),
-                                ],
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                    ),
+                    services(),
 
                     /// contact with me
                     contactWithMe(context),

@@ -222,7 +222,9 @@ Widget getInTouch({
           ),
           Text(
             'Let\'s start  project! Hire Me',
-            style: Theme.of(context).textTheme.bodyLarge,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  fontSize: 30,
+                ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -353,7 +355,7 @@ Widget contactIconsMobile({
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ContactIcon(
-                      icon: 'assets/contact_icons/gitHub.png',
+                      icon: 'assets/contact_icons/github.png',
                       onTap: gitHub,
                     ),
                     const SizedBox(width: 20),
@@ -451,5 +453,69 @@ Widget contactWithMe(context) =>
           ),
           const SizedBox(height: 20),
         ],
+      ),
+    );
+
+Widget services() => SizedBox(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth < 736) {
+            /// mobile
+            return Container(
+              height: 1500,
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
+              color: color,
+              child: Column(
+                children: [
+                  Text(
+                    'Services',
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: complementaryColor,
+                          fontSize: 30,
+                        ),
+                  ),
+                  Text(
+                    'What can I do for you',
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          fontSize: 30,
+                        ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  serviceCardsMobile(),
+                ],
+              ),
+            );
+          } else {
+            /// web
+            return Container(
+              height: 580,
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
+              color: color,
+              child: Column(
+                children: [
+                  Text(
+                    'Services',
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: complementaryColor,
+                          fontSize: 30,
+                        ),
+                  ),
+                  Text(
+                    'What can I do for you',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  serviceCardsWeb(),
+                ],
+              ),
+            );
+          }
+        },
       ),
     );

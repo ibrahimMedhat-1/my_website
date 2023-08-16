@@ -85,9 +85,7 @@ class ProjectsPage extends StatelessWidget {
                           ],
                         ),
                         ProjectWidget(
-                          onTap: () {
-                            print('object');
-                          },
+                          onTap: () {},
                           image: 'assets/service_images/ui_ux.png',
                           name: 'ui / ux',
                           type: 'UI App',

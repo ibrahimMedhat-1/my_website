@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_website/shared/style.dart';
 
 class ProjectWidget extends StatefulWidget {
   final Function() onTap;
@@ -20,18 +21,43 @@ class ProjectWidget extends StatefulWidget {
   State<ProjectWidget> createState() => _ProjectWidgetState();
 }
 
-class _ProjectWidgetState extends State<ProjectWidget> {
+class _ProjectWidgetState extends State<ProjectWidget> with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation animation;
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 370),
+    );
+
+    animation = ColorTween(begin: Colors.greenAccent, end: Colors.blue).animate(animationController);
+
+    animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        Container(
-          height: 110,
-          width: 350,
-          decoration: BoxDecoration(
-            color: Colors.greenAccent,
-            borderRadius: BorderRadius.circular(20),
+        AnimatedBuilder(
+          animation: animationController,
+          builder: (context, child) => child!,
+          child: Container(
+            height: 110,
+            width: 350,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(20),
+            ),
           ),
         ),
         InkWell(
@@ -72,13 +98,13 @@ class _ProjectWidgetState extends State<ProjectWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(widget.name, style: TextStyle(color: Colors.blue)),
+                          Text(widget.name, style: const TextStyle(color: Colors.blue)),
                           const SizedBox(height: 10),
                           Text(widget.type),
                           const SizedBox(height: 10),
                           const Text('Tools & Languages', style: TextStyle(color: Colors.blue)),
                           const SizedBox(height: 10),
-                          Text(widget.tools, style: TextStyle(color: Colors.grey)),
+                          Text(widget.tools, style: const TextStyle(color: Colors.grey)),
                         ],
                       ),
                     ),

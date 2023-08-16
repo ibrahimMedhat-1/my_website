@@ -208,7 +208,7 @@ class AboutPage extends StatelessWidget {
                                               child: const Text(
                                                 ' ibrahimmedhat112@gmail.com',
                                                 style: TextStyle(
-                                                  fontSize: 18,
+                                                  fontSize: 16,
                                                   color: Colors.blue,
                                                 ),
                                               ),
@@ -447,69 +447,7 @@ class AboutPage extends StatelessWidget {
                       ),
 
                       /// services
-                      SizedBox(
-                        child: LayoutBuilder(
-                          builder: (context, constraints) {
-                            if (constraints.maxWidth < 736) {
-                              /// mobile
-                              return Container(
-                                height: 1500,
-                                width: double.infinity,
-                                padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 60),
-                                color: color,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'Services',
-                                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                            color: complementaryColor,
-                                            fontSize: 30,
-                                          ),
-                                    ),
-                                    Text(
-                                      'What can I do for you',
-                                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                            fontSize: 35,
-                                          ),
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    serviceCardsMobile(),
-                                  ],
-                                ),
-                              );
-                            } else {
-                              /// web
-                              return Container(
-                                height: 580,
-                                width: double.infinity,
-                                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
-                                color: color,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'Services',
-                                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                            color: complementaryColor,
-                                            fontSize: 30,
-                                          ),
-                                    ),
-                                    Text(
-                                      'What can I do for you',
-                                      style: Theme.of(context).textTheme.bodyLarge,
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    serviceCardsWeb(),
-                                  ],
-                                ),
-                              );
-                            }
-                          },
-                        ),
-                      ),
+                      services(),
 
                       /// languages & tools
                       Padding(
