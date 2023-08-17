@@ -174,6 +174,7 @@ Widget serviceCardsWeb() => const Expanded(
         ],
       ),
     );
+
 Widget serviceCardsMobile() => const Expanded(
       child: Column(
         children: [

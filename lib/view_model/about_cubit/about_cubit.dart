@@ -33,6 +33,7 @@ class AboutCubit extends Cubit<AboutState> {
     'C++',
   ];
   OS os = OS.web;
+
   void changeOS(os) {
     this.os = os;
     emit(ChangeOS());

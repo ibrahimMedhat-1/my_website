@@ -11,7 +11,7 @@ class HomePageCubit extends Cubit<HomePageState> {
   void launch({required String url}) async {
     final link = Uri.parse(url);
     if (await canLaunchUrl(link)) {
-      launchUrl(link, mode: LaunchMode.externalApplication);
+      launchUrl(link, mode: LaunchMode.externalNonBrowserApplication);
     }
   }
 }

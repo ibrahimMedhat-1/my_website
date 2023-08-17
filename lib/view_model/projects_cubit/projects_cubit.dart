@@ -5,6 +5,7 @@ part 'projects_state.dart';
 
 class ProjectsCubit extends Cubit<ProjectsState> {
   ProjectsCubit() : super(ProjectsInitial());
+
   static ProjectsCubit get(context) => BlocProvider.of(context);
   List<Map<String, dynamic>> projects = [
     {

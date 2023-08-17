@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ContactIcon extends StatefulWidget {
   final String icon;
   final Function() onTap;
+
   const ContactIcon({
     super.key,
     required this.icon,

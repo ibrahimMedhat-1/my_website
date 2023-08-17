@@ -24,6 +24,7 @@ class ProjectWidget extends StatefulWidget {
 class _ProjectWidgetState extends State<ProjectWidget> with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation animation;
+
   @override
   void initState() {
     super.initState();

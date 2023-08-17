@@ -9,4 +9,3 @@ const double appBarRadius = 50.0;
 const double appBarFontSize = 16.0;
 const double appBarWidth = 100.0;
 const double appBarHeight = 10.0;
-//0xFFD56100
