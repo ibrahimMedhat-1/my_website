@@ -348,3 +348,13 @@ class Layout extends StatelessWidget {
     );
   }
 }
+
+// InkWell(onTap: gitHub, child:const ImageIcon(AssetImage('assets/contact_icons/github.png'))),
+// const SizedBox(width: 20),
+// InkWell(onTap: linkedIn, child:const ImageIcon(AssetImage('assets/contact_icons/linkedin.png'))),
+// const SizedBox(width: 20),
+// InkWell(onTap: whatsApp, child:const ImageIcon(AssetImage('assets/contact_icons/whatsapp.png'))),
+// const SizedBox(width: 20),
+// InkWell(onTap: faceBook, child:const ImageIcon(AssetImage('assets/contact_icons/facebook.png'))),
+// const SizedBox(width: 20),
+// InkWell(onTap: instagram, child:const ImageIcon(AssetImage('assets/contact_icons/instagram.png'))),
