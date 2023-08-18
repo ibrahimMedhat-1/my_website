@@ -33,6 +33,7 @@ dependencies:
   url_launcher:
   vector_math:
   flutter_bloc:
+  device_apps:
   flutter:
     sdk: flutter
 

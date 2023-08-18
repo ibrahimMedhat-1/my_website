@@ -4,6 +4,7 @@ import 'package:my_website/view_model/layout_cubit/layout_cubit.dart';
 
 import '../shared/components/animated_contact_icons.dart';
 import '../shared/components/animated_default_button.dart';
+import '../shared/core.dart';
 import '../shared/style.dart';
 import '../view_model/home_page_cubit/home_page_cubit.dart';
 
@@ -296,42 +297,92 @@ class Layout extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ContactIcon(
-                        icon: 'assets/contact_icons/github.png',
-                        onTap: () {
-                          HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
-                        },
-                      ),
+                      /// github
+                      isIOS
+                          ? InkWell(
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
+                              },
+                              child: const ImageIcon(
+                                AssetImage('assets/contact_icons/github.png'),
+                              ))
+                          : ContactIcon(
+                              icon: 'assets/contact_icons/github.png',
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
+                              },
+                            ),
                       const SizedBox(width: 20),
-                      ContactIcon(
-                        icon: 'assets/contact_icons/linkedin.png',
-                        onTap: () {
-                          HomePageCubit.get(context).launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
-                        },
-                      ),
+
+                      /// linkedIn
+                      isIOS
+                          ? InkWell(
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
+                              },
+                              child: const ImageIcon(
+                                AssetImage('assets/contact_icons/linkedin.png'),
+                              ))
+                          : ContactIcon(
+                              icon: 'assets/contact_icons/linkedin.png',
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
+                              },
+                            ),
                       const SizedBox(width: 20),
-                      ContactIcon(
-                        icon: 'assets/contact_icons/whatsapp.png',
-                        onTap: () {
-                          HomePageCubit.get(context).launch(url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
-                        },
-                      ),
+
+                      /// whatsapp
+                      isIOS
+                          ? InkWell(
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
+                              },
+                              child: const ImageIcon(
+                                AssetImage('assets/contact_icons/whatsapp.png'),
+                              ))
+                          : ContactIcon(
+                              icon: 'assets/contact_icons/whatsapp.png',
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
+                              },
+                            ),
                       const SizedBox(width: 20),
-                      ContactIcon(
-                        icon: 'assets/contact_icons/facebook.png',
-                        onTap: () {
-                          HomePageCubit.get(context).launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
-                        },
-                      ),
+
+                      /// facebook
+                      isIOS
+                          ? InkWell(
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
+                              },
+                              child: const ImageIcon(
+                                AssetImage('assets/contact_icons/facebook.png'),
+                              ))
+                          : ContactIcon(
+                              icon: 'assets/contact_icons/facebook.png',
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
+                              },
+                            ),
                       const SizedBox(width: 20),
-                      ContactIcon(
-                        icon: 'assets/contact_icons/instagram.png',
-                        onTap: () {
-                          HomePageCubit.get(context).launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
-                        },
-                      ),
+
+                      /// instagram
+                      isIOS
+                          ? InkWell(
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
+                              },
+                              child: const ImageIcon(
+                                AssetImage('assets/contact_icons/instagram.png'),
+                              ))
+                          : ContactIcon(
+                              icon: 'assets/contact_icons/instagram.png',
+                              onTap: () {
+                                HomePageCubit.get(context).launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
+                              },
+                            ),
                     ],
                   ),
+
                   const SizedBox(height: 20),
                   Text(
                     'Ibrahim Medhat copyright 2023 developed by Ibrahim Medhat',

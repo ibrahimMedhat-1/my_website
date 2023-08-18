@@ -3,6 +3,7 @@ import 'package:my_website/shared/style.dart';
 
 import '../../view_model/home_page_cubit/home_page_cubit.dart';
 import '../../view_model/layout_cubit/layout_cubit.dart';
+import '../core.dart';
 import 'animated_contact_icons.dart';
 import 'animated_default_button.dart';
 import 'animated_services_widget.dart';
@@ -355,30 +356,69 @@ Widget contactIconsMobile({
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ContactIcon(
-                      icon: 'assets/contact_icons/github.png',
-                      onTap: gitHub,
-                    ),
+                    /// github
+                    isIOS
+                        ? InkWell(
+                            onTap: gitHub,
+                            child: const ImageIcon(
+                              AssetImage('assets/contact_icons/github.png'),
+                            ))
+                        : ContactIcon(
+                            icon: 'assets/contact_icons/github.png',
+                            onTap: gitHub,
+                          ),
                     const SizedBox(width: 20),
-                    ContactIcon(
-                      icon: 'assets/contact_icons/linkedin.png',
-                      onTap: linkedIn,
-                    ),
+
+                    /// linkedIn
+                    isIOS
+                        ? InkWell(
+                            onTap: linkedIn,
+                            child: const ImageIcon(
+                              AssetImage('assets/contact_icons/linkedin.png'),
+                            ))
+                        : ContactIcon(
+                            icon: 'assets/contact_icons/linkedin.png',
+                            onTap: linkedIn,
+                          ),
                     const SizedBox(width: 20),
-                    ContactIcon(
-                      icon: 'assets/contact_icons/whatsapp.png',
-                      onTap: whatsApp,
-                    ),
+
+                    /// whatsapp
+                    isIOS
+                        ? InkWell(
+                            onTap: whatsApp,
+                            child: const ImageIcon(
+                              AssetImage('assets/contact_icons/whatsapp.png'),
+                            ))
+                        : ContactIcon(
+                            icon: 'assets/contact_icons/whatsapp.png',
+                            onTap: whatsApp,
+                          ),
                     const SizedBox(width: 20),
-                    ContactIcon(
-                      icon: 'assets/contact_icons/facebook.png',
-                      onTap: faceBook,
-                    ),
+
+                    /// facebook
+                    isIOS
+                        ? InkWell(
+                            onTap: faceBook,
+                            child: const ImageIcon(
+                              AssetImage('assets/contact_icons/facebook.png'),
+                            ))
+                        : ContactIcon(
+                            icon: 'assets/contact_icons/facebook.png',
+                            onTap: faceBook,
+                          ),
                     const SizedBox(width: 20),
-                    ContactIcon(
-                      icon: 'assets/contact_icons/instagram.png',
-                      onTap: instagram,
-                    ),
+
+                    /// instagram
+                    isIOS
+                        ? InkWell(
+                            onTap: instagram,
+                            child: const ImageIcon(
+                              AssetImage('assets/contact_icons/instagram.png'),
+                            ))
+                        : ContactIcon(
+                            icon: 'assets/contact_icons/instagram.png',
+                            onTap: instagram,
+                          ),
                   ],
                 ),
               ],
