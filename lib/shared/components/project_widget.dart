@@ -28,20 +28,6 @@ class _ProjectWidgetState extends State<ProjectWidget> with SingleTickerProvider
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 370),
-    );
-
-    animation = ColorTween(begin: Colors.greenAccent, end: Colors.blue).animate(animationController);
-
-    animationController.forward();
-  }
-
-  @override
-  void dispose() {
-    animationController.dispose();
-    super.dispose();
   }
 
   @override
@@ -49,16 +35,12 @@ class _ProjectWidgetState extends State<ProjectWidget> with SingleTickerProvider
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        AnimatedBuilder(
-          animation: animationController,
-          builder: (context, child) => child!,
-          child: Container(
-            height: 110,
-            width: 350,
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(20),
-            ),
+        Container(
+          height: 110,
+          width: 350,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(20),
           ),
         ),
         InkWell(

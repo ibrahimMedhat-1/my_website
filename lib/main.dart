@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_website/firebase_options.dart';
-import 'package:my_website/layout/layout.dart';
 import 'package:my_website/shared/core.dart';
+import 'package:my_website/view/project_page/project_page.dart';
 import 'package:my_website/view_model/about_cubit/about_cubit.dart';
 import 'package:my_website/view_model/home_page_cubit/home_page_cubit.dart';
 import 'package:my_website/view_model/layout_cubit/layout_cubit.dart';
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
           } else if (constraints.maxWidth > 846) {
             AboutCubit.get(context).changeOS(OS.web);
           }
-          return const Layout();
+          return const ProjectsPage();
         }),
       ),
     );

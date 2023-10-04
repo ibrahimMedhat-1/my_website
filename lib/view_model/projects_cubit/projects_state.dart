@@ -4,3 +4,5 @@ part of 'projects_cubit.dart';
 abstract class ProjectsState {}
 
 class ProjectsInitial extends ProjectsState {}
+
+class ShowProjectDescription extends ProjectsState {}
