@@ -1,5 +1,4 @@
 import 'package:my_website/src/core/config/app_imports.dart';
-
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
@@ -61,7 +60,7 @@ class AboutPage extends StatelessWidget {
 
                     ///personal Data
 
-                    if (Platform.isAndroid || Platform.isIOS)
+                    // if (html.Platform.isAndroid || html.Platform.isIOS)
 
                       /// mobile
                       Column(
@@ -447,7 +446,7 @@ class AboutPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 20),
                           GridView.count(
-                            crossAxisCount: Platform.isAndroid || Platform.isIOS ? 1 : 3,
+                            crossAxisCount: MediaQuery.of(context).size.width > 1000 ? 3 : 1,
                             childAspectRatio: 10,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),

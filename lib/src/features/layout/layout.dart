@@ -1,5 +1,5 @@
 import 'package:my_website/src/core/config/app_imports.dart';
-
+import 'dart:html' as html;
 class Layout extends StatelessWidget {
   const Layout({super.key});
 
@@ -290,15 +290,16 @@ class Layout extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       /// github
-                      Platform.isIOS
-                          ? InkWell(
-                              onTap: () {
-                                HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
-                              },
-                              child: const ImageIcon(
-                                AssetImage('assets/contact_icons/github.png'),
-                              ))
-                          : ContactIcon(
+                      // html.Platform.isIOS
+                      //     ? InkWell(
+                      //         onTap: () {
+                      //           HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
+                      //         },
+                      //         child: const ImageIcon(
+                      //           AssetImage('assets/contact_icons/github.png'),
+                      //         ))
+                      //     :
+                      ContactIcon(
                               icon: 'assets/contact_icons/github.png',
                               onTap: () {
                                 HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
@@ -307,16 +308,17 @@ class Layout extends StatelessWidget {
                       const SizedBox(width: 20),
 
                       /// linkedIn
-                      Platform.isIOS
-                          ? InkWell(
-                              onTap: () {
-                                HomePageCubit.get(context)
-                                    .launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
-                              },
-                              child: const ImageIcon(
-                                AssetImage('assets/contact_icons/linkedin.png'),
-                              ))
-                          : ContactIcon(
+                      // html.Platform.isIOS
+                      //     ? InkWell(
+                      //         onTap: () {
+                      //           HomePageCubit.get(context)
+                      //               .launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
+                      //         },
+                      //         child: const ImageIcon(
+                      //           AssetImage('assets/contact_icons/linkedin.png'),
+                      //         ))
+                      //     :
+                      ContactIcon(
                               icon: 'assets/contact_icons/linkedin.png',
                               onTap: () {
                                 HomePageCubit.get(context)
@@ -326,17 +328,18 @@ class Layout extends StatelessWidget {
                       const SizedBox(width: 20),
 
                       /// whatsapp
-                      Platform.isIOS
-                          ? InkWell(
-                              onTap: () {
-                                HomePageCubit.get(context).launch(
-                                    url:
-                                        'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
-                              },
-                              child: const ImageIcon(
-                                AssetImage('assets/contact_icons/whatsapp.png'),
-                              ))
-                          : ContactIcon(
+                      // html.Platform.isIOS
+                      //     ? InkWell(
+                      //         onTap: () {
+                      //           HomePageCubit.get(context).launch(
+                      //               url:
+                      //                   'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
+                      //         },
+                      //         child: const ImageIcon(
+                      //           AssetImage('assets/contact_icons/whatsapp.png'),
+                      //         ))
+                      //     :
+                      ContactIcon(
                               icon: 'assets/contact_icons/whatsapp.png',
                               onTap: () {
                                 HomePageCubit.get(context).launch(
@@ -347,16 +350,17 @@ class Layout extends StatelessWidget {
                       const SizedBox(width: 20),
 
                       /// facebook
-                      Platform.isIOS
-                          ? InkWell(
-                              onTap: () {
-                                HomePageCubit.get(context)
-                                    .launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
-                              },
-                              child: const ImageIcon(
-                                AssetImage('assets/contact_icons/facebook.png'),
-                              ))
-                          : ContactIcon(
+                      // html.Platform.isIOS
+                      //     ? InkWell(
+                      //         onTap: () {
+                      //           HomePageCubit.get(context)
+                      //               .launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
+                      //         },
+                      //         child: const ImageIcon(
+                      //           AssetImage('assets/contact_icons/facebook.png'),
+                      //         ))
+                      //     :
+                      ContactIcon(
                               icon: 'assets/contact_icons/facebook.png',
                               onTap: () {
                                 HomePageCubit.get(context)
@@ -366,16 +370,17 @@ class Layout extends StatelessWidget {
                       const SizedBox(width: 20),
 
                       /// instagram
-                      Platform.isIOS
-                          ? InkWell(
-                              onTap: () {
-                                HomePageCubit.get(context).launch(
-                                    url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
-                              },
-                              child: const ImageIcon(
-                                AssetImage('assets/contact_icons/instagram.png'),
-                              ))
-                          : ContactIcon(
+                      // html.Platform.isIOS
+                      //     ? InkWell(
+                      //         onTap: () {
+                      //           HomePageCubit.get(context).launch(
+                      //               url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
+                      //         },
+                      //         child: const ImageIcon(
+                      //           AssetImage('assets/contact_icons/instagram.png'),
+                      //         ))
+                      //     :
+                      ContactIcon(
                               icon: 'assets/contact_icons/instagram.png',
                               onTap: () {
                                 HomePageCubit.get(context).launch(

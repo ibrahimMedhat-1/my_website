@@ -349,68 +349,75 @@ Widget contactIconsMobile({
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     /// github
-                    Platform.isIOS
-                        ? InkWell(
-                            onTap: gitHub,
-                            child: const ImageIcon(
-                              AssetImage('assets/contact_icons/github.png'),
-                            ))
-                        : ContactIcon(
-                            icon: 'assets/contact_icons/github.png',
-                            onTap: gitHub,
-                          ),
+                    // // html.Platform.isIOS
+                    // //     ? InkWell(
+                    // //         onTap: gitHub,
+                    // //         child: const ImageIcon(
+                    // //           AssetImage('assets/contact_icons/github.png'),
+                    // //         ))
+                    // //
+                    //     :
+                    ContactIcon(
+                      icon: 'assets/contact_icons/github.png',
+                      onTap: gitHub,
+                    ),
                     const SizedBox(width: 20),
 
                     /// linkedIn
-                    Platform.isIOS
-                        ? InkWell(
-                            onTap: linkedIn,
-                            child: const ImageIcon(
-                              AssetImage('assets/contact_icons/linkedin.png'),
-                            ))
-                        : ContactIcon(
-                            icon: 'assets/contact_icons/linkedin.png',
-                            onTap: linkedIn,
-                          ),
+                    // // html.Platform.isIOS
+                    // //     ? InkWell(
+                    // //         onTap: linkedIn,
+                    // //         child: const ImageIcon(
+                    // //           AssetImage('assets/contact_icons/linkedin.png'),
+                    // //         ))
+                    // //     :
+
+                    ContactIcon(
+                      icon: 'assets/contact_icons/linkedin.png',
+                      onTap: linkedIn,
+                    ),
                     const SizedBox(width: 20),
 
                     /// whatsapp
-                    Platform.isIOS
-                        ? InkWell(
-                            onTap: whatsApp,
-                            child: const ImageIcon(
-                              AssetImage('assets/contact_icons/whatsapp.png'),
-                            ))
-                        : ContactIcon(
-                            icon: 'assets/contact_icons/whatsapp.png',
-                            onTap: whatsApp,
-                          ),
+                    // html.Platform.isIOS
+                    //     ? InkWell(
+                    //         onTap: whatsApp,
+                    //         child: const ImageIcon(
+                    //           AssetImage('assets/contact_icons/whatsapp.png'),
+                    //         ))
+                    //     :
+                    ContactIcon(
+                      icon: 'assets/contact_icons/whatsapp.png',
+                      onTap: whatsApp,
+                    ),
                     const SizedBox(width: 20),
 
                     /// facebook
-                    Platform.isIOS
-                        ? InkWell(
-                            onTap: faceBook,
-                            child: const ImageIcon(
-                              AssetImage('assets/contact_icons/facebook.png'),
-                            ))
-                        : ContactIcon(
-                            icon: 'assets/contact_icons/facebook.png',
-                            onTap: faceBook,
-                          ),
+                    // html.Platform.isIOS
+                    //     ? InkWell(
+                    //         onTap: faceBook,
+                    //         child: const ImageIcon(
+                    //           AssetImage('assets/contact_icons/facebook.png'),
+                    //         ))
+                    //     :
+                    ContactIcon(
+                      icon: 'assets/contact_icons/facebook.png',
+                      onTap: faceBook,
+                    ),
                     const SizedBox(width: 20),
 
                     /// instagram
-                    Platform.isIOS
-                        ? InkWell(
-                            onTap: instagram,
-                            child: const ImageIcon(
-                              AssetImage('assets/contact_icons/instagram.png'),
-                            ))
-                        : ContactIcon(
-                            icon: 'assets/contact_icons/instagram.png',
-                            onTap: instagram,
-                          ),
+                    // html.Platform.isIOS
+                    //     ? InkWell(
+                    //         onTap: instagram,
+                    //          child: const ImageIcon(
+                    //           AssetImage('assets/contact_icons/instagram.png'),
+                    //         ))
+                    //     :
+                    ContactIcon(
+                      icon: 'assets/contact_icons/instagram.png',
+                      onTap: instagram,
+                    ),
                   ],
                 ),
               ],
@@ -455,7 +462,8 @@ Widget contactWithMe(context) =>
                   },
                   whatsApp: () {
                     HomePageCubit.get(context).launch(
-                        url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
+                        url:
+                            'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
                   },
                   faceBook: () {
                     HomePageCubit.get(context)
@@ -478,7 +486,8 @@ Widget contactWithMe(context) =>
                   },
                   whatsApp: () {
                     HomePageCubit.get(context).launch(
-                        url: 'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
+                        url:
+                            'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
                   },
                   faceBook: () {
                     HomePageCubit.get(context)
