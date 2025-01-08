@@ -37,181 +37,191 @@ class Layout extends StatelessWidget {
                       return AppBar(
                         surfaceTintColor: Colors.white,
                         iconTheme: const IconThemeData(color: Colors.blue),
-                        title: Row(
-                          spacing: 7,
-                          children: [
-                            Assets.mainLogo.svg(),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Ibrahim Medhat',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
+                        title: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            spacing: 7,
+                            children: [
+                              Assets.mainLogo.svg(),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Ibrahim Medhat',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                RichText(
-                                    text: TextSpan(
-                                  children: [
-                                    const TextSpan(
-                                      text: 'Flutter',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 12,
+                                  RichText(
+                                      text: TextSpan(
+                                    children: [
+                                      const TextSpan(
+                                        text: 'Flutter',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 12,
+                                        ),
                                       ),
-                                    ),
-                                    TextSpan(
-                                      text: ' Engineer',
-                                      style: TextStyle(
-                                        color: AppColors.mainColor,
-                                        fontSize: 12,
+                                      TextSpan(
+                                        text: ' Developer',
+                                        style: TextStyle(
+                                          color: AppColors.mainColor,
+                                          fontSize: 12,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            DefaultButton(
-                              text: 'Home',
-                              onTap: () {
-                                cubit.changePage(0);
-                              },
-                              borderRadius: appBarRadius,
-                              fontSize: appBarFontSize,
-                              width: appBarWidth,
-                              height: appBarHeight,
-                              borderColor: Colors.transparent,
-                              marginTop: appBarMarginTop,
-                              marginRight: appBarMarginRight,
-                              containerColor: Colors.transparent,
-                              mainContainerColor: Colors.transparent,
-                              animationContainerColor: Colors.transparent,
-                              animationTextColor: AppColors.mainColor,
-                              textColor: cubit.isSelected[0] ? AppColors.mainColor : Colors.black,
-                              mainTextColor: cubit.isSelected[0] ? AppColors.mainColor : Colors.black,
-                              isSelected: cubit.isSelected[0],
-                            ),
-                            DefaultButton(
-                              text: 'About',
-                              onTap: () {
-                                cubit.changePage(1);
-                              },
-                              borderRadius: appBarRadius,
-                              fontSize: appBarFontSize,
-                              width: appBarWidth,
-                              height: appBarHeight,
-                              borderColor: Colors.transparent,
-                              marginTop: appBarMarginTop,
-                              marginRight: appBarMarginRight,
-                              containerColor: Colors.transparent,
-                              mainContainerColor: Colors.transparent,
-                              animationContainerColor: Colors.transparent,
-                              animationTextColor: AppColors.mainColor,
-                              textColor: cubit.isSelected[1] ? AppColors.mainColor : Colors.black,
-                              mainTextColor: cubit.isSelected[1] ? AppColors.mainColor : Colors.black,
-                              isSelected: cubit.isSelected[1],
-                            ),
-                            DefaultButton(
-                              text: 'Projects',
-                              onTap: () {
-                                cubit.changePage(2);
-                              },
-                              borderRadius: appBarRadius,
-                              fontSize: appBarFontSize,
-                              width: appBarWidth,
-                              height: appBarHeight,
-                              borderColor: Colors.transparent,
-                              marginTop: appBarMarginTop,
-                              marginRight: appBarMarginRight,
-                              containerColor: Colors.transparent,
-                              mainContainerColor: Colors.transparent,
-                              animationContainerColor: Colors.transparent,
-                              animationTextColor: AppColors.mainColor,
-                              textColor: cubit.isSelected[2] ? AppColors.mainColor : Colors.black,
-                              mainTextColor: cubit.isSelected[2] ? AppColors.mainColor : Colors.black,
-                              isSelected: cubit.isSelected[2],
-                            ),
-                            DefaultButton(
-                              text: 'Contact',
-                              onTap: () {
-                                cubit.changePage(3);
-                              },
-                              borderRadius: appBarRadius,
-                              fontSize: appBarFontSize,
-                              width: appBarWidth,
-                              height: appBarHeight,
-                              borderColor: Colors.transparent,
-                              marginTop: appBarMarginTop,
-                              marginRight: appBarMarginRight,
-                              containerColor: Colors.transparent,
-                              mainContainerColor: Colors.transparent,
-                              animationContainerColor: Colors.transparent,
-                              animationTextColor: AppColors.mainColor,
-                              textColor: cubit.isSelected[3] ? AppColors.mainColor : Colors.black,
-                              mainTextColor: cubit.isSelected[3] ? AppColors.mainColor : Colors.black,
-                              isSelected: cubit.isSelected[3],
-                            ),
-                            const Spacer(),
-                          ],
+                                    ],
+                                  ),
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              DefaultButton(
+                                text: 'Home',
+                                onTap: () {
+                                  cubit.changePage(0);
+                                },
+                                borderRadius: appBarRadius,
+                                fontSize: appBarFontSize,
+                                width: appBarWidth,
+                                height: appBarHeight,
+                                borderColor: Colors.transparent,
+                                marginTop: appBarMarginTop,
+                                marginRight: appBarMarginRight,
+                                containerColor: Colors.transparent,
+                                mainContainerColor: Colors.transparent,
+                                animationContainerColor: Colors.transparent,
+                                animationTextColor: AppColors.mainColor,
+                                textColor: cubit.isSelected[0] ? AppColors.mainColor : Colors.black,
+                                mainTextColor: cubit.isSelected[0] ? AppColors.mainColor : Colors.black,
+                                isSelected: cubit.isSelected[0],
+                              ),
+                              DefaultButton(
+                                text: 'About',
+                                onTap: () {
+                                  cubit.changePage(1);
+                                },
+                                borderRadius: appBarRadius,
+                                fontSize: appBarFontSize,
+                                width: appBarWidth,
+                                height: appBarHeight,
+                                borderColor: Colors.transparent,
+                                marginTop: appBarMarginTop,
+                                marginRight: appBarMarginRight,
+                                containerColor: Colors.transparent,
+                                mainContainerColor: Colors.transparent,
+                                animationContainerColor: Colors.transparent,
+                                animationTextColor: AppColors.mainColor,
+                                textColor: cubit.isSelected[1] ? AppColors.mainColor : Colors.black,
+                                mainTextColor: cubit.isSelected[1] ? AppColors.mainColor : Colors.black,
+                                isSelected: cubit.isSelected[1],
+                              ),
+                              DefaultButton(
+                                text: 'Projects',
+                                onTap: () {
+                                  cubit.changePage(2);
+                                },
+                                borderRadius: appBarRadius,
+                                fontSize: appBarFontSize,
+                                width: appBarWidth,
+                                height: appBarHeight,
+                                borderColor: Colors.transparent,
+                                marginTop: appBarMarginTop,
+                                marginRight: appBarMarginRight,
+                                containerColor: Colors.transparent,
+                                mainContainerColor: Colors.transparent,
+                                animationContainerColor: Colors.transparent,
+                                animationTextColor: AppColors.mainColor,
+                                textColor: cubit.isSelected[2] ? AppColors.mainColor : Colors.black,
+                                mainTextColor: cubit.isSelected[2] ? AppColors.mainColor : Colors.black,
+                                isSelected: cubit.isSelected[2],
+                              ),
+                              DefaultButton(
+                                text: 'Contact',
+                                onTap: () {
+                                  cubit.changePage(3);
+                                },
+                                borderRadius: appBarRadius,
+                                fontSize: appBarFontSize,
+                                width: appBarWidth,
+                                height: appBarHeight,
+                                borderColor: Colors.transparent,
+                                marginTop: appBarMarginTop,
+                                marginRight: appBarMarginRight,
+                                containerColor: Colors.transparent,
+                                mainContainerColor: Colors.transparent,
+                                animationContainerColor: Colors.transparent,
+                                animationTextColor: AppColors.mainColor,
+                                textColor: cubit.isSelected[3] ? AppColors.mainColor : Colors.black,
+                                mainTextColor: cubit.isSelected[3] ? AppColors.mainColor : Colors.black,
+                                isSelected: cubit.isSelected[3],
+                              ),
+                              const Spacer(),
+                            ],
+                          ),
                         ),
                         actions: [
-                          DefaultButton(
-                            text: 'Hire Me',
-                            onTap: (){
-                              AppFunctions.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
-                            },
-                            borderRadius: 20,
-                            fontSize: 20,
-                            width: 150,
-                            height: 70,
-                            borderColor: AppColors.mainColor,
-                            marginTop: 0,
-                            marginRight: 0,
-                            containerColor: AppColors.mainColor,
-                            mainContainerColor: AppColors.mainColor,
-                            animationContainerColor: Colors.blue,
-                            textColor: Colors.white,
-                            mainTextColor: Colors.white,
-                            animationTextColor: AppColors.mainColor,
-                            isSelected: false,
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5,bottom: 5),
+                            child: DefaultButton(
+                              text: 'Hire Me',
+                              onTap: (){
+                                AppFunctions.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+                              },
+                              borderRadius: 8,
+                              fontSize: 16,
+                              width: 150,
+                              height: 70,
+                              borderColor: AppColors.mainColor,
+                              marginTop: 0,
+                              marginRight: 0,
+                              containerColor: AppColors.mainColor,
+                              mainContainerColor: AppColors.mainColor,
+                              animationContainerColor: AppColors.mainColor.withAlpha(60),
+                              textColor: Colors.white,
+                              mainTextColor: Colors.white,
+                              animationTextColor: AppColors.mainColor,
+                              isSelected: false,
+                            ),
                           ),
-                          20.isWidth,
-                          DefaultButton(
-                            text: 'Download CV',
-                            onTap: (){
-                              AppFunctions.launch(
-                                  url:
-                                  'https://drive.google.com/file/d/1K02ioXeBJJHPuffeXTALScn_9wjVCuXV/view?usp=sharing');                            },
-                            borderRadius: 20,
-                            fontSize: 20,
-                            width: 150,
-                            height: 70,
-                            borderColor: AppColors.mainColor,
-                            marginTop: 0,
-                            marginRight: 0,
-                            containerColor: AppColors.mainColor,
-                            mainContainerColor: AppColors.mainColor,
-                            animationContainerColor: Colors.blue,
-                            textColor: Colors.white,
-                            mainTextColor: Colors.white,
-                            animationTextColor: AppColors.mainColor,
-                            isSelected: false,
+                          2.isWidth,
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5,bottom: 5,right: 10),
+                            child: DefaultButton(
+                              text: 'Download CV',
+                              onTap: (){
+                                AppFunctions.launch(
+                                    url:
+                                    'https://drive.google.com/file/d/1K02ioXeBJJHPuffeXTALScn_9wjVCuXV/view?usp=sharing');                            },
+                              borderRadius: 8,
+                              fontSize: 16,
+                              width: 150,
+                              height: 70,
+                              borderColor: AppColors.mainColor,
+                              marginTop: 0,
+                              marginRight: 0,
+                              containerColor: Colors.white,
+                              mainContainerColor: Colors.white,
+                              animationContainerColor: AppColors.mainColor.withAlpha(60),
+                              textColor: AppColors.mainColor,
+                              mainTextColor: AppColors.mainColor,
+                              animationTextColor: AppColors.mainColor,
+                              isSelected: false,
+                            ),
                           ),
-
                         ],
                       );
                     }
                   },
                 ),
+
                 Expanded(child: cubit.pages[cubit.page]),
+
               ],
             ),
           ),
-          drawer: DrawerWidget(cubit: cubit),
+          // drawer: DrawerWidget(cubit: cubit),
         );
       },
     );
@@ -242,8 +252,9 @@ class DrawerWidget extends StatelessWidget {
               child: Center(
                 child: Text(
                   'Ibrahim Medhat',
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Colors.white,
+
                       ),
                 ),
               ),

@@ -1,3 +1,4 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:my_website/src/core/config/app_imports.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,11 +25,8 @@ class HomePage extends StatelessWidget {
                         builder: (context, constraints) {
                           if (constraints.maxWidth > 736) {
                             ///web
-                            return Container(
+                            return SizedBox(
                               height: 500,
-                              decoration: BoxDecoration(
-                                color: color,
-                              ),
                               child: Row(
                                 children: [
                                   /// Name and Data
@@ -38,33 +36,136 @@ class HomePage extends StatelessWidget {
                                       padding: const EdgeInsets.only(left: 80),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           dataWidget(context),
                                           dataButtonsWidget(
                                             hireMe: () {
-                                              cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+                                              cubit.launch(
+                                                  url:
+                                                      'mailto:ibrahimmedhat112@gmail.com');
                                             },
                                             portfolio: () {
-                                              LayoutCubit.get(context).changePage(2);
+                                              LayoutCubit.get(context)
+                                                  .changePage(2);
                                             },
+                                          ),
+                                          const SizedBox(height: 15),
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/Icon.svg'),
+                                              const SizedBox(width: 10),
+                                              const Text("+20 106 417 2976"),
+                                            ],
+                                          ),
+                                          const SizedBox(height: 15),
+                                          Row(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  SvgPicture.asset(
+                                                      'assets/Icon2.svg'),
+                                                  const SizedBox(width: 10),
+                                                  const Text(
+                                                      "Ibrahimmedhat112@gmail.com"),
+                                                ],
+                                              ),
+                                              const SizedBox(width: 25),
+                                              Row(
+                                                children: [
+                                                  SvgPicture.asset(
+                                                      'assets/Icon3.svg'),
+                                                  const SizedBox(width: 10),
+                                                  const Text(
+                                                      "Maadi, Cairo, Egypt"),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(height: 20),
+                                          Container(
+                                            width: 500, // Length of the line
+                                            height: 0.5, // Thickness of the line
+                                            color: Colors
+                                                .grey, // Color of the line
                                           ),
                                         ],
                                       ),
                                     ),
                                   ),
-
-                                  /// Profile Picture
-                                  const Expanded(
-                                    flex: 4,
+                                  //Profile Picture
+                                  Expanded(
+                                    flex: 6,
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        CircleAvatar(
-                                          minRadius: 80,
-                                          maxRadius: 120,
-                                          backgroundImage: AssetImage('assets/profileImage.jpg'),
-                                        )
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.3,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.6,
+                                          child: ClipRect(
+                                            child: Image.asset(
+                                              'assets/Group 1321316017.png',
+                                              fit: BoxFit
+                                                  .cover, // Cover the container
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  //Follow Me
+                                  Expanded(
+                                    flex: 1,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        // Rotated Text
+                                        const RotatedBox(
+                                          quarterTurns: 1, // Rotate 90 degrees
+                                          child: Text(
+                                            'Follow Me :',
+                                            style: TextStyle(fontSize: 18),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10), // Spacing
+                                        // Line
+                                        RotatedBox(
+                                          quarterTurns: 1,
+                                          child: Container(
+                                            width: 80, // Length of the line
+                                            height: 1, // Thickness of the line
+                                            color: Colors
+                                                .black, // Color of the line
+                                          ),
+                                        ),
+                                        const SizedBox(height: 20), // Spacing
+                                        // SVG Icons
+                                        RotatedBox(
+                                          quarterTurns: 1,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/facebook-4 1.svg'),
+                                              const SizedBox(width: 20),
+                                              SvgPicture.asset(
+                                                  'assets/instagram-5 1.svg'),
+                                              const SizedBox(width: 20),
+                                              SvgPicture.asset(
+                                                  'assets/linkedin-icon-2 1.svg'),
+                                            ],
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -87,12 +188,14 @@ class HomePage extends StatelessWidget {
                                   const Expanded(
                                     flex: 4,
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         CircleAvatar(
                                           minRadius: 80,
                                           maxRadius: 120,
-                                          backgroundImage: AssetImage('assets/profileImage.jpg'),
+                                          backgroundImage: AssetImage(
+                                              'assets/profileImage.jpg'),
                                         )
                                       ],
                                     ),
@@ -104,15 +207,19 @@ class HomePage extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.only(left: 20),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           dataWidget(context),
                                           dataButtonsWidget(
                                             hireMe: () {
-                                              cubit.launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+                                              cubit.launch(
+                                                  url:
+                                                      'mailto:ibrahimmedhat112@gmail.com');
                                             },
                                             portfolio: () {
-                                              LayoutCubit.get(context).changePage(2);
+                                              LayoutCubit.get(context)
+                                                  .changePage(2);
                                             },
                                           ),
                                         ],
@@ -129,7 +236,8 @@ class HomePage extends StatelessWidget {
 
                     /// who am i
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 30),
                       child: whoAmIWidget(
                           context: context,
                           downloadCv: () {

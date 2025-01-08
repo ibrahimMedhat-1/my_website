@@ -5,29 +5,18 @@ Widget dataWidget(context) => Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Welcome!',
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: complementaryColor,
-              ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Ibrahim',
+          'Ibrahim Medhat',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontWeight: FontWeight.bold,
-                fontSize: 70,
+                fontSize: 40,
               ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
         Text(
-          'Medhat',
+          'Flutter Developer',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontWeight: FontWeight.bold,
-                fontSize: 70,
+                color: AppColors.mainColor,
+                fontSize: 40,
               ),
         ),
         const SizedBox(
@@ -35,10 +24,13 @@ Widget dataWidget(context) => Column(
         ),
         Text(
           'Software Engineer / Flutter Developer / Back-End Developer / WebSite Developer / Mobile App Developer',
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(color: complementaryColor),
+          style: Theme.of(context)
+              .textTheme
+              .bodySmall!
+              .copyWith(color: complementaryColor),
         ),
         const SizedBox(
-          height: 50,
+          height: 20,
         ),
       ],
     );
@@ -51,18 +43,18 @@ Widget dataButtonsWidget({
       mainAxisSize: MainAxisSize.min,
       children: [
         DefaultButton(
-          text: 'Hire Me',
+          text: 'Contact Me',
           onTap: hireMe,
-          borderRadius: 20,
-          fontSize: 20,
-          width: 150,
-          height: 70,
+          borderRadius: 8,
+          fontSize: 16,
+          width: 200,
+          height: 50,
           borderColor: AppColors.mainColor,
           marginTop: 0,
           marginRight: 0,
           containerColor: AppColors.mainColor,
           mainContainerColor: AppColors.mainColor,
-          animationContainerColor: Colors.blue,
+          animationContainerColor: AppColors.mainColor.withAlpha(60),
           textColor: Colors.white,
           mainTextColor: Colors.white,
           animationTextColor: AppColors.mainColor,
@@ -72,20 +64,20 @@ Widget dataButtonsWidget({
           width: 20,
         ),
         DefaultButton(
-          text: 'Portfolio',
+          text: 'View Portfolio',
           onTap: portfolio,
-          borderRadius: 20,
+          borderRadius: 8,
           fontSize: 20,
-          width: 150,
-          height: 70,
+          width: 200,
+          height: 50,
           borderColor: Colors.transparent,
           marginTop: 0,
           marginRight: 0,
           containerColor: Colors.white,
           mainContainerColor: Colors.white,
-          animationContainerColor: Colors.blue,
-          textColor: Colors.blue,
-          mainTextColor: Colors.blue,
+          animationContainerColor: AppColors.mainColor.withAlpha(60),
+          textColor: Colors.black,
+          mainTextColor:AppColors.mainColor,
           animationTextColor: Colors.white,
           isSelected: false,
         ),
@@ -145,7 +137,8 @@ Widget serviceCardsWeb() => const Expanded(
         children: [
           ServiceWidgetWeb(
             backgroundImage: 'assets/service_images/ui_ux.png',
-            text: 'Create beautiful user interfaces with the best user experience using Figma.',
+            text:
+                'Create beautiful user interfaces with the best user experience using Figma.',
             title: 'UI / UX',
           ),
           SizedBox(
@@ -173,7 +166,8 @@ Widget serviceCardsMobile() => const Expanded(
         children: [
           ServiceWidgetMobile(
             backgroundImage: 'assets/service_images/ui_ux.png',
-            text: 'Create beautiful user interfaces with the best user experience using Figma.',
+            text:
+                'Create beautiful user interfaces with the best user experience using Figma.',
             title: 'UI / UX',
           ),
           SizedBox(
@@ -342,7 +336,10 @@ Widget contactIconsMobile({
               children: [
                 Text(
                   'Ibrahim Medhat copyright 2023 developed by Ibrahim Medhat',
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 16),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodySmall!
+                      .copyWith(fontSize: 16),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -438,7 +435,8 @@ Widget contactWithMe(context) =>
           getInTouch(
             context: context,
             hireMe: () {
-              HomePageCubit.get(context).launch(url: 'mailto:ibrahimmedhat112@gmail.com');
+              HomePageCubit.get(context)
+                  .launch(url: 'mailto:ibrahimmedhat112@gmail.com');
             },
             portfolio: () {
               LayoutCubit.get(context).changePage(2);
@@ -454,11 +452,13 @@ Widget contactWithMe(context) =>
                 return contactIconsMobile(
                   context: context,
                   gitHub: () {
-                    HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
+                    HomePageCubit.get(context)
+                        .launch(url: 'https://github.com/ibrahimMedhat-1');
                   },
                   linkedIn: () {
-                    HomePageCubit.get(context)
-                        .launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
+                    HomePageCubit.get(context).launch(
+                        url:
+                            'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
                   },
                   whatsApp: () {
                     HomePageCubit.get(context).launch(
@@ -466,23 +466,27 @@ Widget contactWithMe(context) =>
                             'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
                   },
                   faceBook: () {
-                    HomePageCubit.get(context)
-                        .launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
+                    HomePageCubit.get(context).launch(
+                        url:
+                            'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
                   },
                   instagram: () {
-                    HomePageCubit.get(context)
-                        .launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
+                    HomePageCubit.get(context).launch(
+                        url:
+                            'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
                   },
                 );
               } else {
                 return contactIconsWeb(
                   context: context,
                   gitHub: () {
-                    HomePageCubit.get(context).launch(url: 'https://github.com/ibrahimMedhat-1');
+                    HomePageCubit.get(context)
+                        .launch(url: 'https://github.com/ibrahimMedhat-1');
                   },
                   linkedIn: () {
-                    HomePageCubit.get(context)
-                        .launch(url: 'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
+                    HomePageCubit.get(context).launch(
+                        url:
+                            'https://www.linkedin.com/in/ibrahim-medhat-612043224/');
                   },
                   whatsApp: () {
                     HomePageCubit.get(context).launch(
@@ -490,12 +494,14 @@ Widget contactWithMe(context) =>
                             'https://wa.me/201553708872?text=Hi,%20I%20wanna%20talk%20about%20business.');
                   },
                   faceBook: () {
-                    HomePageCubit.get(context)
-                        .launch(url: 'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
+                    HomePageCubit.get(context).launch(
+                        url:
+                            'https://www.facebook.com/Ibrahimmedha?mibextid=ZbWKwL');
                   },
                   instagram: () {
-                    HomePageCubit.get(context)
-                        .launch(url: 'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
+                    HomePageCubit.get(context).launch(
+                        url:
+                            'https://instagram.com/ibrahemmedhat2014?igshid=MzNlNGNkZWQ4Mg==');
                   },
                 );
               }

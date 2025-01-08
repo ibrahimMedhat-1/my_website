@@ -71,13 +71,12 @@ class Assets {
       $AssetsServiceImagesGen();
   static const AssetGenImage thebesLogo =
       AssetGenImage('assets/thebesLogo.png');
-
   /// List of all assets
   static List<dynamic> get values =>
       [imLogo, mainLogo, profileImage, thebesLogo];
 }
 
-class AssetGenImage {
+ class AssetGenImage {
   const AssetGenImage(
     this._assetName, {
     this.size,

@@ -80,8 +80,10 @@ class _DefaultButtonState extends State<DefaultButton> {
           } else {
             if (!widget.isSelected) {
               setState(() {
+
                 widget.containerColor = widget.mainContainerColor;
                 widget.textColor = widget.mainTextColor;
+
               });
             }
           }
@@ -90,12 +92,18 @@ class _DefaultButtonState extends State<DefaultButton> {
           widget.onTap();
         },
         child: Center(
-          child: Text(
-            widget.text,
-            style: TextStyle(
-              color: widget.isSelected ? widget.animationTextColor : widget.textColor,
-              fontSize: widget.fontSize,
-            ),
+          child: Row(
+            children: [
+              Text(
+                widget.text,
+                style: TextStyle(
+                  color: widget.isSelected ? widget.animationTextColor : widget.textColor,
+                  fontSize: widget.fontSize,
+                ),
+              ),
+
+            ],
+
           ),
         ),
       ),
