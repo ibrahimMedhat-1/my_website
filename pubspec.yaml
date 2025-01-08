@@ -7,31 +7,50 @@ environment:
   sdk: '>=3.0.6 <4.0.0'
 
 dependencies:
+  # Responsiveness
+  flutter_screenutil: ^5.0.0+2
   device_preview:
-  firebase_core:
-  url_launcher:
-  vector_math:
-  flutter_bloc:
   device_apps:
+  # Firebase
+  firebase_core:
+  # Linking
+  url_launcher:
+  # State Management
+  get_it:
+  flutter_bloc:
+  # Addictiveness
+  cupertino_icons: ^1.0.2
+  # Asset management
+  flutter_svg:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  # assets manager
+  build_runner:
+  flutter_gen_runner:
+  flutter_launcher_icons:
 
-  flutter_lints: ^2.0.0
+
+#asset generator
+flutter_gen:
+  output: lib/src/core/gen/ # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+  # Optional
+  integrations:
+    flutter_svg: true
+    flare_flutter: true
+    rive: true
+    lottie: true
+
 flutter:
   uses-material-design: true
   assets:
     - assets/
     - assets/service_images/
     - assets/contact_icons/
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+

@@ -1,4 +1,8 @@
-
+export 'package:my_website/src/core/config/dependency_injection.dart';
+export 'package:my_website/src/core/style/colors.dart';
+export 'package:my_website/src/core/gen/assets.gen.dart';
+export 'package:my_website/src/core/helper/extensions/distance_extension.dart';
+export 'package:get_it/get_it.dart';
 export 'package:firebase_core/firebase_core.dart';
 export 'package:flutter/foundation.dart';
 export 'package:flutter/material.dart';
