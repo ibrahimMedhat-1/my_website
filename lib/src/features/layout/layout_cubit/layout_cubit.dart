@@ -7,7 +7,7 @@ class LayoutCubit extends Cubit<LayoutState> {
 
   static LayoutCubit get(context) => BlocProvider.of(context);
   List<Widget> pages = [
-    const HomePage(),
+     HomePage(),
     const AboutPage(),
     const ProjectsPage(),
     const ContactPage(),

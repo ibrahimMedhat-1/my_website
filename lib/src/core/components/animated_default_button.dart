@@ -92,8 +92,7 @@ class _DefaultButtonState extends State<DefaultButton> {
           widget.onTap();
         },
         child: Center(
-          child: Row(
-            children: [
+          child:
               Text(
                 widget.text,
                 style: TextStyle(
@@ -102,9 +101,7 @@ class _DefaultButtonState extends State<DefaultButton> {
                 ),
               ),
 
-            ],
 
-          ),
         ),
       ),
     );

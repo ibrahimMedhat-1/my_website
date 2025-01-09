@@ -1,3 +1,4 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:my_website/src/core/config/app_imports.dart';
 
 Widget dataWidget(context) => Column(
@@ -196,66 +197,83 @@ Widget getInTouch({
   required Function() portfolio,
 }) =>
     SizedBox(
-      height: 280,
+      height: 200,
       width: double.infinity,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+
         children: [
-          Text(
-            'GET IN TOUCH',
-            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  fontSize: 30,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 100,vertical: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Contact',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 28,
+                      ),
+                    ),
+                    Text(
+                      ' Me',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.mainColor,
+                        fontSize: 28,
+                      ),
+                    ),
+                  ],
                 ),
-          ),
-          Text(
-            'Let\'s start  project! Hire Me',
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontSize: 30,
+                const Text(
+                  'Mauris primis turpis Laoreet magna felis ',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
+                const Text(
+                  'Mauris primis turpis Laoreet magna felis ',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+                Row(
+                  children: [
+                    SvgPicture.asset('assets/main_logo.svg',width: 30,height: 30,),
+                    const SizedBox(width:8 ,),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Ibrahim Medhat',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          'Flutter Developer',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              DefaultButton(
-                text: 'Hire Me',
-                onTap: hireMe,
-                borderRadius: 20,
-                fontSize: 20,
-                width: 150,
-                height: 70,
-                borderColor: Colors.transparent,
-                marginTop: 20,
-                marginRight: 20,
-                containerColor: Colors.blue,
-                mainContainerColor: Colors.blue,
-                animationContainerColor: Colors.grey.shade300,
-                textColor: Colors.white,
-                mainTextColor: Colors.white,
-                animationTextColor: Colors.blue,
-                isSelected: false,
-              ),
-              DefaultButton(
-                text: 'Portfolio',
-                onTap: portfolio,
-                borderRadius: 20,
-                fontSize: 20,
-                width: 150,
-                height: 70,
-                borderColor: Colors.transparent,
-                marginTop: 20,
-                marginRight: 0,
-                containerColor: Colors.blue,
-                mainContainerColor: Colors.blue,
-                animationContainerColor: Colors.grey.shade300,
-                textColor: Colors.white,
-                mainTextColor: Colors.white,
-                animationTextColor: Colors.blue,
-                isSelected: false,
-              ),
-            ],
-          ),
+
+
+
         ],
       ),
     );
@@ -269,7 +287,7 @@ Widget contactIconsWeb({
   required Function() instagram,
 }) =>
     SizedBox(
-      height: 100,
+      height: 50,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -427,8 +445,9 @@ Widget contactIconsMobile({
 Widget contactWithMe(context) =>
 
     /// Contact with me
-    SizedBox(
-      height: 450,
+    Container(
+      color: const Color(0xFFF8F8F8),
+
       child: Column(
         children: [
           /// Get in touch
@@ -443,7 +462,7 @@ Widget contactWithMe(context) =>
             },
           ),
           const Divider(
-            thickness: 3,
+            thickness: 1,
             color: Colors.black45,
           ),
           LayoutBuilder(

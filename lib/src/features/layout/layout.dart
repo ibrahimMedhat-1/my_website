@@ -204,7 +204,7 @@ class Layout extends StatelessWidget {
                               containerColor: Colors.white,
                               mainContainerColor: Colors.white,
                               animationContainerColor: AppColors.mainColor.withAlpha(60),
-                              textColor: AppColors.mainColor,
+                              textColor: Colors.black,
                               mainTextColor: AppColors.mainColor,
                               animationTextColor: AppColors.mainColor,
                               isSelected: false,
