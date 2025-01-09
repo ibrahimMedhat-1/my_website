@@ -1,4 +1,6 @@
 import 'package:flutter_svg/svg.dart';
+import 'package:intl_phone_field/country_picker_dialog.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:my_website/src/core/config/app_imports.dart';
 
 Widget dataWidget(context) => Column(
@@ -78,7 +80,7 @@ Widget dataButtonsWidget({
           mainContainerColor: Colors.white,
           animationContainerColor: AppColors.mainColor.withAlpha(60),
           textColor: Colors.black,
-          mainTextColor:AppColors.mainColor,
+          mainTextColor: AppColors.mainColor,
           animationTextColor: Colors.white,
           isSelected: false,
         ),
@@ -199,12 +201,12 @@ Widget getInTouch({
     SizedBox(
       height: 200,
       width: double.infinity,
-      child: Column(
-
+      child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100,vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 30),
             child: Column(
+              spacing: 5,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -212,40 +214,44 @@ Widget getInTouch({
                   children: [
                     Text(
                       'Contact',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                        fontSize: 28,
-                      ),
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 28,
+                          ),
                     ),
                     Text(
                       ' Me',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.mainColor,
-                        fontSize: 28,
-                      ),
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.mainColor,
+                            fontSize: 28,
+                          ),
                     ),
                   ],
                 ),
-                const Text(
-                  'Mauris primis turpis Laoreet magna felis ',
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
-                ),
-                const Text(
-                  'Mauris primis turpis Laoreet magna felis ',
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                const Column(
+                  children: [
+                    Text(
+                      'Mauris primis turpis Laoreet magna felis ',
+                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                    ),
+                    Text(
+                      'Mauris primis turpis Laoreet magna felis ',
+                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                    ),
+                  ],
                 ),
                 Row(
                   children: [
-                    SvgPicture.asset('assets/main_logo.svg',width: 30,height: 30,),
-                    const SizedBox(width:8 ,),
+                    SvgPicture.asset(
+                      'assets/main_logo.svg',
+                      width: 30,
+                      height: 30,
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -271,9 +277,39 @@ Widget getInTouch({
               ],
             ),
           ),
-
-
-
+          SizedBox(
+            width: 270,
+            child: IntlPhoneField(
+              dropdownDecoration: const BoxDecoration(),
+              dropdownTextStyle: const TextStyle(fontSize: 12, color: Colors.green),
+              pickerDialogStyle: PickerDialogStyle(
+                width: 400,
+                padding: const EdgeInsets.all(50),
+                countryNameStyle: const TextStyle(fontSize: 12),
+                searchFieldInputDecoration: const InputDecoration(
+                  labelStyle: TextStyle(
+                    fontSize: 12,
+                  ),
+                  label: Text("Search.."),
+                ),
+              ),
+              style: const TextStyle(fontSize: 12),
+              decoration: const InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
+                counterStyle: TextStyle(fontSize: 10),
+                labelText: 'Phone Number',
+                labelStyle: TextStyle(fontSize: 12),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(),
+                ),
+              ),
+              initialCountryCode: 'EG',
+              onChanged: (phone) {
+                print(phone.completeNumber);
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -447,7 +483,6 @@ Widget contactWithMe(context) =>
     /// Contact with me
     Container(
       color: const Color(0xFFF8F8F8),
-
       child: Column(
         children: [
           /// Get in touch
