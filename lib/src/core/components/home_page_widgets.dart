@@ -277,38 +277,93 @@ Widget getInTouch({
               ],
             ),
           ),
-          SizedBox(
-            width: 270,
-            child: IntlPhoneField(
-              dropdownDecoration: const BoxDecoration(),
-              dropdownTextStyle: const TextStyle(fontSize: 12, color: Colors.green),
-              pickerDialogStyle: PickerDialogStyle(
-                width: 400,
-                padding: const EdgeInsets.all(50),
-                countryNameStyle: const TextStyle(fontSize: 12),
-                searchFieldInputDecoration: const InputDecoration(
-                  labelStyle: TextStyle(
-                    fontSize: 12,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: 270,
+                    child: IntlPhoneField(
+                      dropdownDecoration: const BoxDecoration(),
+                      dropdownTextStyle: const TextStyle(fontSize: 12, color: Colors.green),
+                      pickerDialogStyle: PickerDialogStyle(
+                        width: 400,
+                        padding: const EdgeInsets.all(50),
+                        countryNameStyle: const TextStyle(fontSize: 12),
+                        searchFieldInputDecoration: const InputDecoration(
+                          labelStyle: TextStyle(
+                            fontSize: 12,
+                          ),
+                          label: Text("Search.."),
+                        ),
+                      ),
+                      style: const TextStyle(fontSize: 12),
+                      decoration: const InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        counterStyle: TextStyle(fontSize: 10),
+                        errorStyle: TextStyle(fontSize: 10,),
+
+                        counterText: "",
+                        labelText: 'Phone Number',
+                        labelStyle: TextStyle(fontSize: 12),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
+                      ),
+                      initialCountryCode: 'EG',
+                      onChanged: (phone) {
+                        print(phone.completeNumber);
+                      },
+                    ),
                   ),
-                  label: Text("Search.."),
-                ),
+                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 270,
+                    // height: 45,
+                    child: TextField(
+                     style: TextStyle(fontSize: 12),
+                      decoration: InputDecoration(
+                        labelText: "Email Address",
+                        labelStyle: TextStyle(fontSize: 12),
+                        filled: true,
+                        fillColor: Colors.white,
+
+
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(4),
+
+                        )
+                      ),
+                    )
+                  ),
+
+                ],
               ),
-              style: const TextStyle(fontSize: 12),
-              decoration: const InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                counterStyle: TextStyle(fontSize: 10),
-                labelText: 'Phone Number',
-                labelStyle: TextStyle(fontSize: 12),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(),
-                ),
+              SizedBox(height: 10,),
+              SizedBox(
+                  width: 550,
+                  // height: 45,
+                  child: TextField(
+                    style: TextStyle(fontSize: 12),
+                    decoration: InputDecoration(
+                        labelText: "Write you Message",
+                        labelStyle: TextStyle(fontSize: 12),
+                        filled: true,
+                        fillColor: Colors.white,
+
+
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(4),
+                          borderSide: BorderSide(color: Colors.grey)
+                        )
+                    ),
+                  )
               ),
-              initialCountryCode: 'EG',
-              onChanged: (phone) {
-                print(phone.completeNumber);
-              },
-            ),
+            ],
           ),
         ],
       ),
@@ -335,7 +390,7 @@ Widget contactIconsWeb({
               children: [
                 Text(
                   'Ibrahim Medhat copyright 2023 developed by Ibrahim Medhat',
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: TextStyle(fontSize: 14)
                 ),
                 const SizedBox(width: 20),
                 ContactIcon(

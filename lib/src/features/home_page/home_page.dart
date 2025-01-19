@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             LayoutCubit.get(context).changePage(0);
             return Scaffold(
               body: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
+
                 child: Column(
                   children: [
                     // name and data and profile picture
