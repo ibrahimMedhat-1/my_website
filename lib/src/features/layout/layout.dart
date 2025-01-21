@@ -98,26 +98,6 @@ class Layout extends StatelessWidget {
                                 isSelected: cubit.isSelected[0],
                               ),
                               DefaultButton(
-                                text: 'About',
-                                onTap: () {
-                                  cubit.changePage(1);
-                                },
-                                borderRadius: appBarRadius,
-                                fontSize: appBarFontSize,
-                                width: appBarWidth,
-                                height: appBarHeight,
-                                borderColor: Colors.transparent,
-                                marginTop: appBarMarginTop,
-                                marginRight: appBarMarginRight,
-                                containerColor: Colors.transparent,
-                                mainContainerColor: Colors.transparent,
-                                animationContainerColor: Colors.transparent,
-                                animationTextColor: AppColors.mainColor,
-                                textColor: cubit.isSelected[1] ? AppColors.mainColor : Colors.black,
-                                mainTextColor: cubit.isSelected[1] ? AppColors.mainColor : Colors.black,
-                                isSelected: cubit.isSelected[1],
-                              ),
-                              DefaultButton(
                                 text: 'Projects',
                                 onTap: () {
                                   cubit.changePage(2);

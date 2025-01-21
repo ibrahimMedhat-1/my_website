@@ -319,21 +319,21 @@ Widget getInTouch({
                       },
                     ),
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                   SizedBox(
                     width: 270,
                     // height: 45,
                     child: TextField(
-                     style: TextStyle(fontSize: 12),
+                     style: const TextStyle(fontSize: 12),
                       decoration: InputDecoration(
                         labelText: "Email Address",
-                        labelStyle: TextStyle(fontSize: 12),
+                        labelStyle: const TextStyle(fontSize: 12),
                         filled: true,
                         fillColor: Colors.white,
 
 
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(4),
 
                         )
@@ -343,22 +343,22 @@ Widget getInTouch({
 
                 ],
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               SizedBox(
                   width: 550,
                   // height: 45,
                   child: TextField(
-                    style: TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 12),
                     decoration: InputDecoration(
                         labelText: "Write you Message",
-                        labelStyle: TextStyle(fontSize: 12),
+                        labelStyle: const TextStyle(fontSize: 12),
                         filled: true,
                         fillColor: Colors.white,
 
 
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(4),
-                          borderSide: BorderSide(color: Colors.grey)
+                          borderSide: const BorderSide(color: Colors.grey)
                         )
                     ),
                   )
@@ -388,7 +388,7 @@ Widget contactIconsWeb({
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Ibrahim Medhat copyright 2023 developed by Ibrahim Medhat',
                   style: TextStyle(fontSize: 14)
                 ),

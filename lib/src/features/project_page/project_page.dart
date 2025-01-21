@@ -1,10 +1,19 @@
 import 'package:my_website/src/core/config/app_imports.dart';
+import 'package:my_website/src/features/project_page/widgets/grid_item.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    bool isHovered = false;
+    final List<Item> items = List.generate(
+    10,
+    (index) => Item(
+    image: 'assets/0e2777f76d7f2c74ba688503be5c2d8d.webp',
+    description: 'Mauris primis turpis Laoreet magna felis mi amet quam enim curae. $index',
+    ),
+    );
     return BlocProvider(
       create: (context) => ProjectsCubit(),
       child: BlocConsumer<ProjectsCubit, ProjectsState>(
@@ -23,68 +32,74 @@ class ProjectsPage extends StatelessWidget {
                         physics: const BouncingScrollPhysics(),
                         child: Column(
                           children: [
-                            /// About title
-                            Container(
-                              height: 180,
-                              width: double.infinity,
-                              color: color,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Projects',
-                                    style: Theme.of(context).textTheme.bodyLarge,
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      TextButton(
-                                        onPressed: () {
-                                          LayoutCubit.get(context).changePage(0);
-                                        },
-                                        child: Text(
-                                          'Home',
-                                          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                                color: Colors.blue,
-                                              ),
-                                        ),
-                                      ),
-                                      const Icon(
-                                        Icons.arrow_forward_ios_outlined,
-                                        color: Colors.grey,
-                                      ),
-                                      Text(
-                                        ' Projects',
-                                        style: Theme.of(context).textTheme.bodySmall,
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
+                            const SizedBox(height: 40),
+                            Column(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Text(
-                                    'Apps: ',
-                                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                          fontSize: 20,
-                                        ),
-                                  ),
+                                const Text(
+                                  'Projects',
+                                  style: TextStyle(
+                                      fontSize: 30, fontWeight: FontWeight.bold),
                                 ),
+                                const SizedBox(height: 10),
+                                Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Container(
+                                      width: 300, // Width of the thin line
+                                      height: 1, // Height of the thin line
+                                      color: Colors.grey, // Color of the thin line
+                                    ),
+                                    Container(
+                                        width: 150, // Width of the thick line
+                                        height: 6, // Height of the thick line
+                                        color: AppColors
+                                            .mainColor // Color of the thick line
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 15),
+                                const Text(
+                                  'Mauris primis turpis Laoreet magna felis mi amet quam enim curae.Sodales  turpis Laoreet magna ',
+                                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                                ),
+                                const SizedBox(height: 5),
+                                const Text(
+                                  'Mauris primis turpis Laoreet magna felis mi amet quam enim curae. ',
+                                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                                ),
+                                const SizedBox(height: 15),
                               ],
                             ),
-                            ProjectWidget(
-                              onTap: () {
-                                cubit.showProjectDescription('dentist');
-                              },
-                              image: 'assets/service_images/ui_ux.png',
-                              name: 'Dentist Clinic Management',
-                              type: 'Flutter App (IOS - Android)',
-                              tools: 'Firebase - Shared Preference',
+                            const SizedBox(height: 30),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 100),
+                              child: SizedBox(
+                                height: 600,
+                                child: GridView.builder(
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    childAspectRatio: 1.2,
+                                  ),
+                                  itemCount: items.length,
+                                  itemBuilder: (context, index) {
+                                    return GridItem(item: items[index]);
+                                  },
+                                ),
+                              ),
                             ),
+
+
+
+
+                            // ProjectWidget(
+                            //   onTap: () {
+                            //     cubit.showProjectDescription('dentist');
+                            //   },
+                            //   image: 'assets/service_images/ui_ux.png',
+                            //   name: 'Dentist Clinic Management',
+                            //   type: 'Flutter App (IOS - Android)',
+                            //   tools: 'Firebase - Shared Preference',
+                            // ),
 
                             /// contact with me
                             contactWithMe(context),
@@ -92,7 +107,7 @@ class ProjectsPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const ProjectDescription(),
+                    // const ProjectDescription(),
                   ],
                 ),
               );
@@ -102,4 +117,15 @@ class ProjectsPage extends StatelessWidget {
       ),
     );
   }
+}
+class Item {
+  final String image;
+  final String description;
+
+
+  Item({
+    required this.image,
+    required this.description,
+
+  });
 }
